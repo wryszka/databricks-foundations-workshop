@@ -73,6 +73,8 @@ Same `NN` number for both. Numbering map below is fixed to avoid collisions.
 | 24 | G2 | app | simple Databricks App over Genie + Lakebase |
 | 25 | I1 | llm_playground | AI Playground / foundation models primer |
 | 26 | I2 | mlops_glm | simple frequency GLM + MLflow tracking/versioning |
+| 27 | H1 | snowflake_federation | *optional* — federate Snowflake (CONNECTION + FOREIGN CATALOG, query in place, MV cache, remote_query) |
+| 28 | H2 | scheduled_ingest | *optional* — copy vs federate: schedule ingestion of the Snowflake data into a managed table |
 
 ## Testing recipe (DEV)
 

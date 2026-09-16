@@ -42,6 +42,7 @@ isolation, security, and sharing labs.
 | E — Analytics & AI | E1 Genie · E2 dashboard from Genie's SQL · E3 AI functions in SQL |
 | F — Share | F1 Delta Sharing, attendee-to-attendee |
 | G — Put an app in front | G1 Lakebase (+ branch/clone) · G2 simple app over Genie + Lakebase (`app/`) |
+| H — External DB (Snowflake) *· optional* | H1 federation · H2 scheduled ingestion |
 | I — Optional deep-dives | I1 LLM primer / AI Playground · I2 MLOps GLM + MLflow |
 
 **Verified green headless on serverless:** A1–A4, B1–B3, C1–C8, D1 (live pipeline run), D2
@@ -52,7 +53,9 @@ I2 (GLM + MLflow on a recent environment).
 instructions; flagged in each notebook): E1 Genie space, E2 dashboard object, F1 share
 recipient + partner mount, G1 Lakebase provisioning, G2 app deploy, and the true
 cross-tenant *isolation* in C1/C2 (needs a second principal). System/billing tables (C8)
-depend on workspace tier.
+depend on workspace tier. **Track H (optional)** needs a **Snowflake instance** — its
+notebooks are written and syntax-checked but skip themselves until `snowflake_configured`
+is set to `yes`.
 
 ### Data the generator produces
 

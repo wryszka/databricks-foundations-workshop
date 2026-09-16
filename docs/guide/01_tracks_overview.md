@@ -13,6 +13,7 @@ finish everything, and that's fine: there is more here than one day needs.
 | **E — Analytics and AI on your data** | Ask questions in plain English, build a dashboard, and use built-in AI. | E1 Genie · E2 dashboard · E3 AI functions in SQL |
 | **F — Share it back out** | Hand governed results to someone outside your walls, safely. | F1 Delta Sharing |
 | **G — Put an application in front of it** | Add a fast operational database and a small app over everything you built. | G1 Lakebase · G2 a simple app |
+| **H — External database (Snowflake)** *· optional* | Connect to a client's existing Snowflake database: query it live, or copy it on a schedule. | H1 federation · H2 scheduled ingestion |
 | **I — Optional deep-dives** | Extra material for those who want more or finish early. | I1 the AI Playground / language models · I2 a simple predictive model with tracking |
 
 **How to read the difficulty:**
@@ -21,7 +22,8 @@ finish everything, and that's fine: there is more here than one day needs.
 - **E, F, G** make it feel like a real product. Some steps (a shared link to a partner, an
   operational database, a deployed app) may be shown by the instructor rather than done by
   everyone, depending on the workspace — each lab says so honestly.
-- **I** is optional.
+- **H** and **I** are optional. **H** needs a Snowflake instance (the instructor sets this
+  up); until then its notebooks skip themselves safely.
 
 Each lab below follows the same shape: **What this is → Where in Databricks → Steps → You
 should see**, plus a **💡 Genie Code** tip where an AI assistant could write the code for
