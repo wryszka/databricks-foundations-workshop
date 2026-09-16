@@ -24,8 +24,7 @@ The living list of use cases (what each lab teaches, hands-on vs. demo, Free Edi
 feasibility) lives in the workshop instructions document. This is the source of truth we
 add to as the workshop takes shape:
 
-<!-- DOC_LINK -->
-_Link to be added._
+**[Workshop instructions & use-case list (Google Doc)](https://docs.google.com/document/d/1SHEQdec3DxwWHbeUCWGQzPRU7kH5pjzpwNnsflBhFTg/edit)** — under review.
 
 ## Portability & Free Edition
 
