@@ -68,6 +68,14 @@ depend on workspace tier.
 Quick start: import this repo (Workspace → Git folder), open `00_config`, set your
 catalog/schema, run `01_data_generator`, then follow the labs.
 
+## Step-by-step attendee runbook (start here if you're new)
+
+A comprehensive, beginner-level walkthrough — signing in, the UI tour, importing this repo,
+and click-by-click steps for every lab:
+
+- In the repo: [`ATTENDEE_GUIDE.md`](ATTENDEE_GUIDE.md)
+- As a Google Doc: **[Databricks Foundations Workshop — Attendee Runbook](https://docs.google.com/document/d/1TnbQasUgN6s1LMBjLM4ITRNuaISAR6ZHcgUnB8ByaYM/edit)**
+
 ## Use-case list & instructions
 
 The living list of use cases (what each lab teaches, hands-on vs. demo, Free Edition
