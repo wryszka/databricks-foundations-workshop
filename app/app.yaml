@@ -1,0 +1,18 @@
+command: ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+env:
+  - name: KEYSTONE_CATALOG
+    value: "main"
+  - name: KEYSTONE_SCHEMA
+    value: "keystone"
+  # Set these for your workspace (or wire them as app resources):
+  - name: DATABRICKS_WAREHOUSE_ID
+    value: ""
+  - name: GENIE_SPACE_ID
+    value: ""
+  # Optional Lakebase (Postgres) path — leave blank to read via the warehouse instead:
+  - name: LAKEBASE_HOST
+    value: ""
+  - name: LAKEBASE_INSTANCE
+    value: ""
+  - name: LAKEBASE_USER
+    value: ""

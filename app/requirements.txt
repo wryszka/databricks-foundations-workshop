@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+databricks-sdk>=0.40
+pydantic>=2
+# only needed if you use the Lakebase (Postgres) data path:
+psycopg[binary]
