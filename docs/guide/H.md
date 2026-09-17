@@ -14,7 +14,7 @@ query it directly — the query runs on Snowflake and the results come back to y
 copy. You'll also cache it with a Materialized View and push a native query with
 `remote_query`.
 
-**Where in Databricks.** Notebook `notebooks/27_lab_h1_snowflake_federation` (open it from
+**Where in Databricks.** Notebook `notebooks/H_external_snowflake/27_lab_h1_snowflake_federation` (open it from
 the **Workspace** menu), plus a one-time secret set from a terminal.
 
 **Steps.**
@@ -52,7 +52,7 @@ privilege on the metastore. If you don't have those, watch the instructor run it
 Databricks table, refresh it incrementally with `MERGE`, and schedule it — then compare
 copy vs federate.
 
-**Where in Databricks.** Notebook `notebooks/28_lab_h2_scheduled_ingest`, then **Jobs &
+**Where in Databricks.** Notebook `notebooks/H_external_snowflake/28_lab_h2_scheduled_ingest`, then **Jobs &
 Pipelines** to schedule it.
 
 **Steps.**

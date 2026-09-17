@@ -16,19 +16,19 @@ cleaned, gold = a per-tenant summary. Importantly, this notebook **is** the pipe
 definition — you don't press "Run all" on it like a normal notebook; you attach it to a
 pipeline object and start that.
 
-**Where in Databricks.** The notebook `notebooks/17_lab_d1_pipeline` (Workspace) is the
+**Where in Databricks.** The notebook `notebooks/D_transform_and_schedule/17_lab_d1_pipeline` (Workspace) is the
 *definition*; you create the pipeline itself in **Jobs & Pipelines** (left sidebar; the entry
 may read *Jobs & Pipelines*, *Workflows*, *Pipelines*, or *ETL*).
 
 **Steps.**
-1. Open `notebooks/17_lab_d1_pipeline` and **read** it — don't run it. Notice the `import dlt`
+1. Open `notebooks/D_transform_and_schedule/17_lab_d1_pipeline` and **read** it — don't run it. Notice the `import dlt`
    line and the `@dlt.table` decorators: each decorated function defines one table in the
    pipeline. `bronze_policies` / `bronze_claims` read the raw CSVs; `silver_policies` /
    `silver_claims` cast the columns to proper types, turn bad dates into NULL and drop them,
    drop duplicates and drop the `-1` placeholder claims (the `@dlt.expect_or_drop(...)` lines
    are the quality rules); `gold_portfolio_summary` joins them into a per-tenant summary.
    Fill in any `# TODO`s to complete the table definitions (compare with
-   `solutions/17_solution_d1_pipeline` if stuck).
+   `solutions/D_transform_and_schedule/17_solution_d1_pipeline` if stuck).
 2. In the left sidebar open **Jobs & Pipelines** and click **Create → Pipeline** (or **ETL
    pipeline**).
 3. Give it a name (e.g. `keystone-pipeline`). For **source code / notebook**, select this D1
@@ -59,11 +59,11 @@ that runs your D1 pipeline and then, only if it succeeds, runs a second task tha
 gold table looks healthy.
 
 **Where in Databricks.** **Jobs & Pipelines** in the left sidebar (for building the job), plus
-the notebook `notebooks/18_lab_d2_job` (Workspace) whose final cell is the check that becomes
+the notebook `notebooks/D_transform_and_schedule/18_lab_d2_job` (Workspace) whose final cell is the check that becomes
 task 2.
 
 **Steps.**
-1. First, complete the check cell in `notebooks/18_lab_d2_job`. Run its `%run` cell, then fill
+1. First, complete the check cell in `notebooks/D_transform_and_schedule/18_lab_d2_job`. Run its `%run` cell, then fill
    the `# TODO`: count the gold table's rows and distinct tenants and assert it isn't empty.
    Type:
    ```python

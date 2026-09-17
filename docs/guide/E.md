@@ -17,7 +17,7 @@ different tool for *building* — it writes notebook and SQL code from a prompt.
 workspace, different job.)
 
 **Where in Databricks.** Mostly the **Genie** area (left sidebar). There is also a companion
-notebook, `notebooks/19_lab_e1_genie` (open it from the **Workspace** menu), whose optional
+notebook, `notebooks/E_analytics_and_ai/19_lab_e1_genie` (open it from the **Workspace** menu), whose optional
 last cell asks Genie from code.
 
 **Steps.**
@@ -38,7 +38,7 @@ last cell asks Genie from code.
 6. Ask one. Genie replies with a table or chart. Now click **Show generated code** (or the
    **SQL** toggle on the answer) to reveal the SQL Genie wrote. **Copy that SQL and keep it
    in a scratch note — you reuse it in lab E2.**
-7. *(Optional, for the curious.)* Open `notebooks/19_lab_e1_genie`. Copy your space's id
+7. *(Optional, for the curious.)* Open `notebooks/E_analytics_and_ai/19_lab_e1_genie`. Copy your space's id
    from its web address — the part after `.../genie/rooms/` — and paste it into the
    **space_id** widget at the top of the notebook. Then run the last code cell to ask Genie
    the same question from Python and print both the answer and the SQL.
@@ -63,11 +63,11 @@ a bar chart, and a trend line. This is how a one-off question becomes something 
 open every morning.
 
 **Where in Databricks.** The **Dashboards** area (left sidebar) for building the report; the
-companion notebook `notebooks/20_lab_e2_dashboard` (open from **Workspace**) to check the
+companion notebook `notebooks/E_analytics_and_ai/20_lab_e2_dashboard` (open from **Workspace**) to check the
 numbers first.
 
 **Steps.**
-1. First, sanity-check the numbers. Open `notebooks/20_lab_e2_dashboard` and attach
+1. First, sanity-check the numbers. Open `notebooks/E_analytics_and_ai/20_lab_e2_dashboard` and attach
    **Serverless** compute (top-right), as in Part 0.
 2. The first `%sql` cell (the **KPI**, or key-performance-indicator, tile) is given — run it.
    It totals gross written premium (the sum of annual premiums) and the overall claim
@@ -111,11 +111,11 @@ platform — there is no model to deploy and no Python needed. You'll classify c
 the sentiment (tone) of complaint notes, hide personal data, and extract and summarise claim
 documents, all in SQL, right where a data pipeline would.
 
-**Where in Databricks.** The notebook `notebooks/21_lab_e3_ai_functions` (open it from the
+**Where in Databricks.** The notebook `notebooks/E_analytics_and_ai/21_lab_e3_ai_functions` (open it from the
 **Workspace** menu).
 
 **Steps.**
-1. Open `notebooks/21_lab_e3_ai_functions` and attach **Serverless** compute.
+1. Open `notebooks/E_analytics_and_ai/21_lab_e3_ai_functions` and attach **Serverless** compute.
 2. **Section 1 — sentiment.** Find the first `%sql` cell. Replace the `note AS
    todo_replace_me` line with `ai_analyze_sentiment(note) AS sentiment`. Run it. This reads
    the free-text complaint notes in `2_silver_complaints` and labels each as positive,

@@ -6,7 +6,7 @@ Shared conventions so every lab looks and behaves the same. Read before adding n
 
 Fictional company **Keystone** runs a data platform for insurers; tenants are
 **bricksurance_se**, **northwind_mutual**, **helios_re** (every row has a `tenant` column).
-`notebooks/01_data_generator.py` (run with `build_all=yes` for a full set) produces:
+`notebooks/00_setup/01_data_generator.py` (run with `build_all=yes` for a full set) produces:
 
 - Volume `raw/`: `policies.csv`, `claims.csv` (messy), `claims_batch_02.csv` (staged for B2)
 - Volume `landing/claims/`: `claims_batch_01.csv` (arrived Auto Loader batch)
@@ -20,11 +20,14 @@ Fictional company **Keystone** runs a data platform for insurers; tenants are
 
 ## Two notebooks per lab
 
-- **`notebooks/NN_lab_<id>_<slug>.py`** — the "to solve" notebook: working scaffolding with
-  clearly marked `# TODO` gaps for the attendee to fill, plus hints. It need not run end to
-  end (the gaps stop it) — that is expected.
-- **`solutions/NN_solution_<id>_<slug>.py`** — the complete, correct version. **This must run
-  top to bottom on serverless.**
+Notebooks are grouped into per-track subfolders (`00_setup/`, `A_get_in_and_query/`, …)
+under both `notebooks/` and `solutions/`.
+
+- **`notebooks/<track>/NN_lab_<id>_<slug>.py`** — the "to solve" notebook: working
+  scaffolding with clearly marked `# TODO` gaps for the attendee to fill, plus hints. It
+  need not run end to end (the gaps stop it) — that is expected.
+- **`solutions/<track>/NN_solution_<id>_<slug>.py`** — the complete, correct version.
+  **This must run top to bottom on serverless.**
 
 Same `NN` number for both. Numbering map below is fixed to avoid collisions.
 
@@ -34,8 +37,10 @@ Same `NN` number for both. Numbering map below is fixed to avoid collisions.
 2. First cell (`# MAGIC %md`): H1 title `# <ID> — <name>`, then a one-line
    **About this workshop** disclaimer (synthetic data, fictional companies), then a short
    **What is this for** paragraph framing it in the Keystone builder story.
-3. Second cell: `# MAGIC %run ./00_config` (labs read `CATALOG`, `SCHEMA`, `FQ`,
-   `RAW_VOLUME`, `LANDING_VOLUME`, `DOCS_VOLUME`, `TENANTS`, `MODEL_NAME` from it).
+3. Second cell runs the config, path relative to the notebook's folder: a **lab** uses
+   `# MAGIC %run ../00_setup/00_config`; a **solution** uses
+   `# MAGIC %run ../../notebooks/00_setup/00_config`. They read `CATALOG`, `SCHEMA`, `FQ`,
+   `RAW_VOLUME`, `LANDING_VOLUME`, `DOCS_VOLUME`, `TENANTS`, `MODEL_NAME` from it.
 4. Use the config variables — never hardcode catalog/schema. Tables use the `1_`/`2_`/`3_`
    numeric-prefix convention. Keep insurance framing light; lead with the platform concept.
 5. Where an AI helper is a natural shortcut, add a one-line md note:

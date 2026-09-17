@@ -64,12 +64,14 @@ The labs live in a public code repository. You'll import it once:
    `https://github.com/wryszka/databricks-foundations-workshop`
 5. Leave the provider as GitHub and click **Create Git folder**.
 6. A folder `databricks-foundations-workshop` appears. Open it. Inside:
-   - `notebooks/` — the labs you fill in (each named `NN_lab_...`).
-   - `solutions/` — the finished versions, if you get stuck (`NN_solution_...`).
+   - `notebooks/` — the labs you fill in, grouped into per-track subfolders
+     (`00_setup/`, `A_get_in_and_query/`, `B_bring_a_source_in/`, …); files are named `NN_lab_...`.
+   - `solutions/` — the finished versions in the same per-track subfolders
+     (`NN_solution_...`), if you get stuck.
 
 ### 4. Open a notebook and connect compute
 
-1. In `notebooks/`, click `00_config` to open it.
+1. In `notebooks/00_setup/`, click `00_config` to open it.
 2. **Top-right**, find the compute selector. Click it and choose **Serverless**.
 3. **Important — pick a recent environment.** Open the **Environment** panel (a small
    icon on the right edge, or via the compute selector) and select the **latest version**.
@@ -86,11 +88,11 @@ The labs live in a public code repository. You'll import it once:
 
 ### 6. Set up your own workspace area (run these two notebooks once)
 
-1. **`notebooks/00_config`** — sets the catalog and schema you'll work in. It gives you
+1. **`notebooks/00_setup/00_config`** — sets the catalog and schema you'll work in. It gives you
    your **own** schema (named `keystone_<your-username>`) so your tables never clash with
    anyone else's in the room. On Free Edition the catalog defaults to `main`. Click **Run
    all**. When it finishes you'll see a line like `Using main.keystone_you`.
-2. **`notebooks/01_data_generator`** — creates all the sample data for the day (the
+2. **`notebooks/00_setup/01_data_generator`** — creates all the sample data for the day (the
    insurers' policies, claims, complaint notes, documents, and files). Open it, and if you
    want every table ready up front, set the **build_all** widget to `yes`. Click **Run
    all**. It takes about a minute.
@@ -99,12 +101,12 @@ You're ready. The rest of this runbook walks you through the labs in order.
 
 ### How the labs are named
 
-Each lab has two files with the same number:
+Each lab has two files with the same number, in matching per-track subfolders:
 
-- `notebooks/NN_lab_<id>_<name>` — **the one you work in.** It has notes plus gaps marked
-  `# TODO` for you to fill in.
-- `solutions/NN_solution_<id>_<name>` — the complete answer. Peek if you're stuck; try
-  first.
+- `notebooks/<track>/NN_lab_<id>_<name>` — **the one you work in.** It has notes plus gaps
+  marked `# TODO` for you to fill in.
+- `solutions/<track>/NN_solution_<id>_<name>` — the complete answer. Peek if you're stuck;
+  try first.
 
 A **💡 Genie Code** tip appears where an AI assistant could write the code for you: Genie
 Code is a panel in the notebook and SQL editors that turns a plain-English request into

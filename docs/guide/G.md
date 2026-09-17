@@ -15,12 +15,12 @@ kept in sync into it for an app to read, and learn how to **branch** the whole d
 make a near-instant, throwaway copy for a what-if. Actually creating infrastructure is
 switched off by default so the notebook is safe to run.
 
-**Where in Databricks.** Notebook `notebooks/23_lab_g1_lakebase` (open from the **Workspace**
+**Where in Databricks.** Notebook `notebooks/G_app/23_lab_g1_lakebase` (open from the **Workspace**
 menu on the left). Real provisioning is also visible later under **Compute → Database
 instances** (or **Lakebase**) in the left menu.
 
 **Steps.**
-1. Open `notebooks/23_lab_g1_lakebase` from the **Workspace** browser and confirm
+1. Open `notebooks/G_app/23_lab_g1_lakebase` from the **Workspace** browser and confirm
    **Serverless** compute is selected (top-right).
 2. Run the first cell — `%run ./00_config` — to load your catalog and schema.
 3. Run the next cell (the one importing `requests` and defining `api(...)`). It sets up a
@@ -75,12 +75,12 @@ portfolio table. It's the moment the whole day becomes a "product" you can click
 code is already written for you in the `app/` folder; this lab is about pointing it at your
 data and deploying it.
 
-**Where in Databricks.** Notebook `notebooks/24_lab_g2_app` (from the **Workspace** menu),
+**Where in Databricks.** Notebook `notebooks/G_app/24_lab_g2_app` (from the **Workspace** menu),
 the `app/` folder in your Git folder (its files: `app.py`, `app.yaml`, `requirements.txt`,
 `README.md`), and later the **Compute → Apps** area (left menu) where deployed apps appear.
 
 **Steps.**
-1. Open `notebooks/24_lab_g2_app` from the **Workspace** browser; confirm **Serverless** is
+1. Open `notebooks/G_app/24_lab_g2_app` from the **Workspace** browser; confirm **Serverless** is
    selected. Run the first cell (`%run ./00_config`).
 2. Fill in **TODO 1** in the *"1. Confirm the app's data source"* cell and run it. This
    proves the table the app will read actually exists and has data:

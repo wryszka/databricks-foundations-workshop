@@ -15,7 +15,7 @@ it to a recipient, and then — paired with the person next to you — actually 
 other's shared data. It shows how governed results move between organisations with no file
 copying.
 
-**Where in Databricks.** Notebook `notebooks/22_lab_f1_delta_sharing` (open it from the
+**Where in Databricks.** Notebook `notebooks/F_share/22_lab_f1_delta_sharing` (open it from the
 **Workspace** menu on the left). You will run its cells; the person you pair with runs a
 couple of SQL statements in **their** workspace's **SQL Editor**.
 

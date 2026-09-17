@@ -21,7 +21,7 @@ Then, for **each lab** in the track, use exactly this shape:
 **What this is.** 1–3 plain sentences. What you'll do and why it's useful.
 
 **Where in Databricks.** Name the surface(s) a beginner must find, e.g. "Notebook
-`notebooks/06_lab_b1_file_upload` (open it from the **Workspace** menu on the left)",
+`notebooks/B_bring_a_source_in/06_lab_b1_file_upload` (open it from the **Workspace** menu on the left)",
 or "the **SQL Editor**", "the **Catalog** browser", "**Jobs & Pipelines**".
 
 **Steps.**

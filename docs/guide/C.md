@@ -20,7 +20,7 @@ tenant its own **schema** (a folder of tables) and use **grants** (permissions) 
 who can open it. You'll split the shared book into one schema per insurer and grant, inspect,
 then revoke access.
 
-**Where in Databricks.** Notebook `notebooks/09_lab_c1_isolation` (open it from the
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/09_lab_c1_isolation` (open it from the
 **Workspace** menu on the left, inside your `databricks-foundations-workshop/notebooks`
 folder). Attach **Serverless** compute (top-right) if it isn't already.
 
@@ -54,7 +54,7 @@ folder). Attach **Serverless** compute (top-right) if it isn't already.
    spark.sql(f"REVOKE SELECT ON TABLE {bricks}.policies FROM `account users`")
    spark.sql(f"REVOKE USE SCHEMA ON SCHEMA {bricks} FROM `account users`")
    ```
-   Run it. (Stuck? The finished version is `solutions/09_solution_c1_isolation`.)
+   Run it. (Stuck? The finished version is `solutions/C_govern_across_tenants/09_solution_c1_isolation`.)
 
 **You should see.** Three lines like `..._t_bricksurance_se.policies -> 14,998 rows` (one per
 tenant), a confirmation that the grants were applied, a small table from `SHOW GRANTS`
@@ -74,7 +74,7 @@ columns are hidden. Unity Catalog does this with a **row filter** and a **column
 small SQL functions you attach to a table so the rules follow the data everywhere (SQL,
 Python, dashboards, apps).
 
-**Where in Databricks.** Notebook `notebooks/10_lab_c2_rls_masking` (Workspace → your
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/10_lab_c2_rls_masking` (Workspace → your
 notebooks folder), on Serverless.
 
 **Steps.**
@@ -122,7 +122,7 @@ out of date. **Managed tables are the recommended default** — the platform own
 and lifecycle and gives you automatic optimisation plus safety nets. You'll prove the myth
 wrong by dropping a table and getting it back.
 
-**Where in Databricks.** Notebook `notebooks/11_lab_c3_managed_vs_external` (Workspace),
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/11_lab_c3_managed_vs_external` (Workspace),
 Serverless.
 
 **Steps.**
@@ -146,7 +146,7 @@ and keep long-term history. **Time travel** covers the short term (read any rece
 a whole table). A **Slowly Changing Dimension Type 2 (SCD2)** table keeps full history of
 individual records by never overwriting a row — it closes the old one and adds a new one.
 
-**Where in Databricks.** Notebook `notebooks/12_lab_c4_time_travel_scd2` (Workspace),
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/12_lab_c4_time_travel_scd2` (Workspace),
 Serverless.
 
 **Steps.**
@@ -173,7 +173,7 @@ Bricksurance has **two** rows — an old `standard` row with `is_current = false
 instant and cheap, ideal for a throwaway test) and a **deep** clone (a fully independent
 copy). Editing a clone never touches the original.
 
-**Where in Databricks.** Notebook `notebooks/13_lab_c5_clones` (Workspace), Serverless.
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/13_lab_c5_clones` (Workspace), Serverless.
 
 **Steps.**
 1. Run `%run`.
@@ -195,7 +195,7 @@ fewer big ones), **liquid clustering** (organise a table by the columns you filt
 `VACUUM` (remove files no longer referenced). The good news: managed tables do most of this
 automatically — here you see the manual levers so you understand what's happening.
 
-**Where in Databricks.** Notebook `notebooks/14_lab_c6_maintenance` (Workspace), Serverless.
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/14_lab_c6_maintenance` (Workspace), Serverless.
 
 **Steps.**
 1. Run `%run`, then the cell that creates the working table `c6_demo`.
@@ -216,7 +216,7 @@ code. **Catalog Explorer** is the point-and-click browser for your data; **linea
 as a graph, how tables flow into one another.
 
 **Where in Databricks.** First the **Catalog** browser (left sidebar), then notebook
-`notebooks/15_lab_c7_catalog_lineage` (Workspace), Serverless.
+`notebooks/C_govern_across_tenants/15_lab_c7_catalog_lineage` (Workspace), Serverless.
 
 **Steps.**
 1. In the left sidebar click **Catalog**. Expand your catalog (e.g. `main`) → your schema
@@ -247,7 +247,7 @@ empty. The `information_schema` queries always work.
 `system` catalog — the answer to "who queried this?", "where did it come from?", and "what is
 this costing?" This is how builders answer the cost and audit questions.
 
-**Where in Databricks.** Notebook `notebooks/16_lab_c8_system_tables` (Workspace), Serverless.
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/16_lab_c8_system_tables` (Workspace), Serverless.
 
 **Steps.**
 1. Run `%run`, then run the cell that defines a small `probe(label, sql)` helper — it runs a

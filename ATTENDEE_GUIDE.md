@@ -64,12 +64,14 @@ The labs live in a public code repository. You'll import it once:
    `https://github.com/wryszka/databricks-foundations-workshop`
 5. Leave the provider as GitHub and click **Create Git folder**.
 6. A folder `databricks-foundations-workshop` appears. Open it. Inside:
-   - `notebooks/` — the labs you fill in (each named `NN_lab_...`).
-   - `solutions/` — the finished versions, if you get stuck (`NN_solution_...`).
+   - `notebooks/` — the labs you fill in, grouped into per-track subfolders
+     (`00_setup/`, `A_get_in_and_query/`, `B_bring_a_source_in/`, …); files are named `NN_lab_...`.
+   - `solutions/` — the finished versions in the same per-track subfolders
+     (`NN_solution_...`), if you get stuck.
 
 ### 4. Open a notebook and connect compute
 
-1. In `notebooks/`, click `00_config` to open it.
+1. In `notebooks/00_setup/`, click `00_config` to open it.
 2. **Top-right**, find the compute selector. Click it and choose **Serverless**.
 3. **Important — pick a recent environment.** Open the **Environment** panel (a small
    icon on the right edge, or via the compute selector) and select the **latest version**.
@@ -86,11 +88,11 @@ The labs live in a public code repository. You'll import it once:
 
 ### 6. Set up your own workspace area (run these two notebooks once)
 
-1. **`notebooks/00_config`** — sets the catalog and schema you'll work in. It gives you
+1. **`notebooks/00_setup/00_config`** — sets the catalog and schema you'll work in. It gives you
    your **own** schema (named `keystone_<your-username>`) so your tables never clash with
    anyone else's in the room. On Free Edition the catalog defaults to `main`. Click **Run
    all**. When it finishes you'll see a line like `Using main.keystone_you`.
-2. **`notebooks/01_data_generator`** — creates all the sample data for the day (the
+2. **`notebooks/00_setup/01_data_generator`** — creates all the sample data for the day (the
    insurers' policies, claims, complaint notes, documents, and files). Open it, and if you
    want every table ready up front, set the **build_all** widget to `yes`. Click **Run
    all**. It takes about a minute.
@@ -99,12 +101,12 @@ You're ready. The rest of this runbook walks you through the labs in order.
 
 ### How the labs are named
 
-Each lab has two files with the same number:
+Each lab has two files with the same number, in matching per-track subfolders:
 
-- `notebooks/NN_lab_<id>_<name>` — **the one you work in.** It has notes plus gaps marked
-  `# TODO` for you to fill in.
-- `solutions/NN_solution_<id>_<name>` — the complete answer. Peek if you're stuck; try
-  first.
+- `notebooks/<track>/NN_lab_<id>_<name>` — **the one you work in.** It has notes plus gaps
+  marked `# TODO` for you to fill in.
+- `solutions/<track>/NN_solution_<id>_<name>` — the complete answer. Peek if you're stuck;
+  try first.
 
 A **💡 Genie Code** tip appears where an AI assistant could write the code for you: Genie
 Code is a panel in the notebook and SQL editors that turns a plain-English request into
@@ -166,7 +168,7 @@ Databricks stores data in.
 **What this is.** Your first look at the data. You'll read the same table of insurance
 policies from both SQL and Python, draw a small chart, and try the built-in AI assistant.
 
-**Where in Databricks.** Notebook `notebooks/02_lab_a1_meet_platform` — open it from the
+**Where in Databricks.** Notebook `notebooks/A_get_in_and_query/02_lab_a1_meet_platform` — open it from the
 **Workspace** menu on the left (`databricks-foundations-workshop → notebooks`).
 
 **Steps.**
@@ -212,7 +214,7 @@ ask it to generate a whole cell, e.g. *"average premium by region for each tenan
 **What this is.** You'll save a reusable query as a **view**, and discover that AI is
 available as an ordinary SQL function — no special setup.
 
-**Where in Databricks.** Notebook `notebooks/03_lab_a2_sql_warehouse` (Workspace →
+**Where in Databricks.** Notebook `notebooks/A_get_in_and_query/03_lab_a2_sql_warehouse` (Workspace →
 notebooks). Later steps mention the **SQL Editor** (left menu).
 
 **Steps.**
@@ -248,7 +250,7 @@ repository (version-controlled code) into your workspace. It's literally how thi
 arrived.
 
 **Where in Databricks.** The **Workspace** menu (for the clicks) and notebook
-`notebooks/04_lab_a3_git_folders` (for the confirmation cell). This is mostly a UI action.
+`notebooks/A_get_in_and_query/04_lab_a3_git_folders` (for the confirmation cell). This is mostly a UI action.
 
 **Steps.**
 1. You already did this in Part 0, so here you're just confirming you understand it. In
@@ -258,13 +260,13 @@ arrived.
    `https://github.com/wryszka/databricks-foundations-workshop`, leave the provider as
    **GitHub**, and click **Create Git folder**. (You've already got this folder, so you
    don't need to create it again — just note the steps.)
-4. Open `notebooks/04_lab_a3_git_folders` and run the single code cell. It prints the path
+4. Open `notebooks/A_get_in_and_query/04_lab_a3_git_folders` and run the single code cell. It prints the path
    where the notebook lives, showing you're running from a repo-backed folder.
 5. Note the tip: to use the **Git** button (pull/commit changes on a branch), a private
    repo needs a Git credential set under **Settings → Linked accounts** first.
 
 **You should see.** A printed line like
-`This notebook lives at: /Workspace/Users/you/databricks-foundations-workshop/notebooks/04_lab_a3_git_folders`.
+`This notebook lives at: /Workspace/Users/you/databricks-foundations-workshop/notebooks/A_get_in_and_query/04_lab_a3_git_folders`.
 
 **Needs the instructor.** Creating a Git folder against a *private* repo needs a linked
 Git credential — your instructor will show this if relevant; the public workshop repo
@@ -278,7 +280,7 @@ needs nothing.
 paste those into a notebook — you store them in a **secret scope** and read them back by
 name. Here you read a pre-made secret.
 
-**Where in Databricks.** Notebook `notebooks/05_lab_a4_secrets`. Creating a secret is a
+**Where in Databricks.** Notebook `notebooks/A_get_in_and_query/05_lab_a4_secrets`. Creating a secret is a
 one-off command in a **terminal** (your instructor may have done this already for the room).
 
 **Steps.**
@@ -326,7 +328,7 @@ plain-text table format.
 **What this is.** Onboarding a new client's extract. A messy CSV has arrived; you land it
 unchanged (bronze), then produce a clean, correctly typed version (silver).
 
-**Where in Databricks.** Notebook `notebooks/06_lab_b1_file_upload`. The file lives in your
+**Where in Databricks.** Notebook `notebooks/B_bring_a_source_in/06_lab_b1_file_upload`. The file lives in your
 **raw volume**, which you can also see under **Catalog** → your catalog → schema → Volumes.
 
 **Steps.**
@@ -363,7 +365,7 @@ negative premiums, save as 2_silver_policies"* and review what it writes.
 folder and processes **only files it hasn't seen before**. You'll load one batch, drop a
 second file in, and watch only the new file get picked up.
 
-**Where in Databricks.** Notebook `notebooks/07_lab_b2_autoloader`. The watched folder is
+**Where in Databricks.** Notebook `notebooks/B_bring_a_source_in/07_lab_b2_autoloader`. The watched folder is
 `landing/claims/` in your landing volume.
 
 **Steps.**
@@ -397,7 +399,7 @@ a bronze table, processing only new files"*.
 inserts brand-new rows **in a single statement**. With **Change Data Feed** turned on, you
 can then read exactly which rows were updated versus inserted.
 
-**Where in Databricks.** Notebook `notebooks/08_lab_b3_merge_cdf`.
+**Where in Databricks.** Notebook `notebooks/B_bring_a_source_in/08_lab_b3_merge_cdf`.
 
 **Steps.**
 1. Open the notebook and run `%run ./00_config`.
@@ -448,7 +450,7 @@ tenant its own **schema** (a folder of tables) and use **grants** (permissions) 
 who can open it. You'll split the shared book into one schema per insurer and grant, inspect,
 then revoke access.
 
-**Where in Databricks.** Notebook `notebooks/09_lab_c1_isolation` (open it from the
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/09_lab_c1_isolation` (open it from the
 **Workspace** menu on the left, inside your `databricks-foundations-workshop/notebooks`
 folder). Attach **Serverless** compute (top-right) if it isn't already.
 
@@ -482,7 +484,7 @@ folder). Attach **Serverless** compute (top-right) if it isn't already.
    spark.sql(f"REVOKE SELECT ON TABLE {bricks}.policies FROM `account users`")
    spark.sql(f"REVOKE USE SCHEMA ON SCHEMA {bricks} FROM `account users`")
    ```
-   Run it. (Stuck? The finished version is `solutions/09_solution_c1_isolation`.)
+   Run it. (Stuck? The finished version is `solutions/C_govern_across_tenants/09_solution_c1_isolation`.)
 
 **You should see.** Three lines like `..._t_bricksurance_se.policies -> 14,998 rows` (one per
 tenant), a confirmation that the grants were applied, a small table from `SHOW GRANTS`
@@ -502,7 +504,7 @@ columns are hidden. Unity Catalog does this with a **row filter** and a **column
 small SQL functions you attach to a table so the rules follow the data everywhere (SQL,
 Python, dashboards, apps).
 
-**Where in Databricks.** Notebook `notebooks/10_lab_c2_rls_masking` (Workspace → your
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/10_lab_c2_rls_masking` (Workspace → your
 notebooks folder), on Serverless.
 
 **Steps.**
@@ -550,7 +552,7 @@ out of date. **Managed tables are the recommended default** — the platform own
 and lifecycle and gives you automatic optimisation plus safety nets. You'll prove the myth
 wrong by dropping a table and getting it back.
 
-**Where in Databricks.** Notebook `notebooks/11_lab_c3_managed_vs_external` (Workspace),
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/11_lab_c3_managed_vs_external` (Workspace),
 Serverless.
 
 **Steps.**
@@ -574,7 +576,7 @@ and keep long-term history. **Time travel** covers the short term (read any rece
 a whole table). A **Slowly Changing Dimension Type 2 (SCD2)** table keeps full history of
 individual records by never overwriting a row — it closes the old one and adds a new one.
 
-**Where in Databricks.** Notebook `notebooks/12_lab_c4_time_travel_scd2` (Workspace),
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/12_lab_c4_time_travel_scd2` (Workspace),
 Serverless.
 
 **Steps.**
@@ -601,7 +603,7 @@ Bricksurance has **two** rows — an old `standard` row with `is_current = false
 instant and cheap, ideal for a throwaway test) and a **deep** clone (a fully independent
 copy). Editing a clone never touches the original.
 
-**Where in Databricks.** Notebook `notebooks/13_lab_c5_clones` (Workspace), Serverless.
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/13_lab_c5_clones` (Workspace), Serverless.
 
 **Steps.**
 1. Run `%run`.
@@ -623,7 +625,7 @@ fewer big ones), **liquid clustering** (organise a table by the columns you filt
 `VACUUM` (remove files no longer referenced). The good news: managed tables do most of this
 automatically — here you see the manual levers so you understand what's happening.
 
-**Where in Databricks.** Notebook `notebooks/14_lab_c6_maintenance` (Workspace), Serverless.
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/14_lab_c6_maintenance` (Workspace), Serverless.
 
 **Steps.**
 1. Run `%run`, then the cell that creates the working table `c6_demo`.
@@ -644,7 +646,7 @@ code. **Catalog Explorer** is the point-and-click browser for your data; **linea
 as a graph, how tables flow into one another.
 
 **Where in Databricks.** First the **Catalog** browser (left sidebar), then notebook
-`notebooks/15_lab_c7_catalog_lineage` (Workspace), Serverless.
+`notebooks/C_govern_across_tenants/15_lab_c7_catalog_lineage` (Workspace), Serverless.
 
 **Steps.**
 1. In the left sidebar click **Catalog**. Expand your catalog (e.g. `main`) → your schema
@@ -675,7 +677,7 @@ empty. The `information_schema` queries always work.
 `system` catalog — the answer to "who queried this?", "where did it come from?", and "what is
 this costing?" This is how builders answer the cost and audit questions.
 
-**Where in Databricks.** Notebook `notebooks/16_lab_c8_system_tables` (Workspace), Serverless.
+**Where in Databricks.** Notebook `notebooks/C_govern_across_tenants/16_lab_c8_system_tables` (Workspace), Serverless.
 
 **Steps.**
 1. Run `%run`, then run the cell that defines a small `probe(label, sql)` helper — it runs a
@@ -712,19 +714,19 @@ cleaned, gold = a per-tenant summary. Importantly, this notebook **is** the pipe
 definition — you don't press "Run all" on it like a normal notebook; you attach it to a
 pipeline object and start that.
 
-**Where in Databricks.** The notebook `notebooks/17_lab_d1_pipeline` (Workspace) is the
+**Where in Databricks.** The notebook `notebooks/D_transform_and_schedule/17_lab_d1_pipeline` (Workspace) is the
 *definition*; you create the pipeline itself in **Jobs & Pipelines** (left sidebar; the entry
 may read *Jobs & Pipelines*, *Workflows*, *Pipelines*, or *ETL*).
 
 **Steps.**
-1. Open `notebooks/17_lab_d1_pipeline` and **read** it — don't run it. Notice the `import dlt`
+1. Open `notebooks/D_transform_and_schedule/17_lab_d1_pipeline` and **read** it — don't run it. Notice the `import dlt`
    line and the `@dlt.table` decorators: each decorated function defines one table in the
    pipeline. `bronze_policies` / `bronze_claims` read the raw CSVs; `silver_policies` /
    `silver_claims` cast the columns to proper types, turn bad dates into NULL and drop them,
    drop duplicates and drop the `-1` placeholder claims (the `@dlt.expect_or_drop(...)` lines
    are the quality rules); `gold_portfolio_summary` joins them into a per-tenant summary.
    Fill in any `# TODO`s to complete the table definitions (compare with
-   `solutions/17_solution_d1_pipeline` if stuck).
+   `solutions/D_transform_and_schedule/17_solution_d1_pipeline` if stuck).
 2. In the left sidebar open **Jobs & Pipelines** and click **Create → Pipeline** (or **ETL
    pipeline**).
 3. Give it a name (e.g. `keystone-pipeline`). For **source code / notebook**, select this D1
@@ -755,11 +757,11 @@ that runs your D1 pipeline and then, only if it succeeds, runs a second task tha
 gold table looks healthy.
 
 **Where in Databricks.** **Jobs & Pipelines** in the left sidebar (for building the job), plus
-the notebook `notebooks/18_lab_d2_job` (Workspace) whose final cell is the check that becomes
+the notebook `notebooks/D_transform_and_schedule/18_lab_d2_job` (Workspace) whose final cell is the check that becomes
 task 2.
 
 **Steps.**
-1. First, complete the check cell in `notebooks/18_lab_d2_job`. Run its `%run` cell, then fill
+1. First, complete the check cell in `notebooks/D_transform_and_schedule/18_lab_d2_job`. Run its `%run` cell, then fill
    the `# TODO`: count the gold table's rows and distinct tenants and assert it isn't empty.
    Type:
    ```python
@@ -807,7 +809,7 @@ different tool for *building* — it writes notebook and SQL code from a prompt.
 workspace, different job.)
 
 **Where in Databricks.** Mostly the **Genie** area (left sidebar). There is also a companion
-notebook, `notebooks/19_lab_e1_genie` (open it from the **Workspace** menu), whose optional
+notebook, `notebooks/E_analytics_and_ai/19_lab_e1_genie` (open it from the **Workspace** menu), whose optional
 last cell asks Genie from code.
 
 **Steps.**
@@ -828,7 +830,7 @@ last cell asks Genie from code.
 6. Ask one. Genie replies with a table or chart. Now click **Show generated code** (or the
    **SQL** toggle on the answer) to reveal the SQL Genie wrote. **Copy that SQL and keep it
    in a scratch note — you reuse it in lab E2.**
-7. *(Optional, for the curious.)* Open `notebooks/19_lab_e1_genie`. Copy your space's id
+7. *(Optional, for the curious.)* Open `notebooks/E_analytics_and_ai/19_lab_e1_genie`. Copy your space's id
    from its web address — the part after `.../genie/rooms/` — and paste it into the
    **space_id** widget at the top of the notebook. Then run the last code cell to ask Genie
    the same question from Python and print both the answer and the SQL.
@@ -853,11 +855,11 @@ a bar chart, and a trend line. This is how a one-off question becomes something 
 open every morning.
 
 **Where in Databricks.** The **Dashboards** area (left sidebar) for building the report; the
-companion notebook `notebooks/20_lab_e2_dashboard` (open from **Workspace**) to check the
+companion notebook `notebooks/E_analytics_and_ai/20_lab_e2_dashboard` (open from **Workspace**) to check the
 numbers first.
 
 **Steps.**
-1. First, sanity-check the numbers. Open `notebooks/20_lab_e2_dashboard` and attach
+1. First, sanity-check the numbers. Open `notebooks/E_analytics_and_ai/20_lab_e2_dashboard` and attach
    **Serverless** compute (top-right), as in Part 0.
 2. The first `%sql` cell (the **KPI**, or key-performance-indicator, tile) is given — run it.
    It totals gross written premium (the sum of annual premiums) and the overall claim
@@ -901,11 +903,11 @@ platform — there is no model to deploy and no Python needed. You'll classify c
 the sentiment (tone) of complaint notes, hide personal data, and extract and summarise claim
 documents, all in SQL, right where a data pipeline would.
 
-**Where in Databricks.** The notebook `notebooks/21_lab_e3_ai_functions` (open it from the
+**Where in Databricks.** The notebook `notebooks/E_analytics_and_ai/21_lab_e3_ai_functions` (open it from the
 **Workspace** menu).
 
 **Steps.**
-1. Open `notebooks/21_lab_e3_ai_functions` and attach **Serverless** compute.
+1. Open `notebooks/E_analytics_and_ai/21_lab_e3_ai_functions` and attach **Serverless** compute.
 2. **Section 1 — sentiment.** Find the first `%sql` cell. Replace the `note AS
    todo_replace_me` line with `ai_analyze_sentiment(note) AS sentiment`. Run it. This reads
    the free-text complaint notes in `2_silver_complaints` and labels each as positive,
@@ -964,7 +966,7 @@ it to a recipient, and then — paired with the person next to you — actually 
 other's shared data. It shows how governed results move between organisations with no file
 copying.
 
-**Where in Databricks.** Notebook `notebooks/22_lab_f1_delta_sharing` (open it from the
+**Where in Databricks.** Notebook `notebooks/F_share/22_lab_f1_delta_sharing` (open it from the
 **Workspace** menu on the left). You will run its cells; the person you pair with runs a
 couple of SQL statements in **their** workspace's **SQL Editor**.
 
@@ -1055,12 +1057,12 @@ kept in sync into it for an app to read, and learn how to **branch** the whole d
 make a near-instant, throwaway copy for a what-if. Actually creating infrastructure is
 switched off by default so the notebook is safe to run.
 
-**Where in Databricks.** Notebook `notebooks/23_lab_g1_lakebase` (open from the **Workspace**
+**Where in Databricks.** Notebook `notebooks/G_app/23_lab_g1_lakebase` (open from the **Workspace**
 menu on the left). Real provisioning is also visible later under **Compute → Database
 instances** (or **Lakebase**) in the left menu.
 
 **Steps.**
-1. Open `notebooks/23_lab_g1_lakebase` from the **Workspace** browser and confirm
+1. Open `notebooks/G_app/23_lab_g1_lakebase` from the **Workspace** browser and confirm
    **Serverless** compute is selected (top-right).
 2. Run the first cell — `%run ./00_config` — to load your catalog and schema.
 3. Run the next cell (the one importing `requests` and defining `api(...)`). It sets up a
@@ -1115,12 +1117,12 @@ portfolio table. It's the moment the whole day becomes a "product" you can click
 code is already written for you in the `app/` folder; this lab is about pointing it at your
 data and deploying it.
 
-**Where in Databricks.** Notebook `notebooks/24_lab_g2_app` (from the **Workspace** menu),
+**Where in Databricks.** Notebook `notebooks/G_app/24_lab_g2_app` (from the **Workspace** menu),
 the `app/` folder in your Git folder (its files: `app.py`, `app.yaml`, `requirements.txt`,
 `README.md`), and later the **Compute → Apps** area (left menu) where deployed apps appear.
 
 **Steps.**
-1. Open `notebooks/24_lab_g2_app` from the **Workspace** browser; confirm **Serverless** is
+1. Open `notebooks/G_app/24_lab_g2_app` from the **Workspace** browser; confirm **Serverless** is
    selected. Run the first cell (`%run ./00_config`).
 2. Fill in **TODO 1** in the *"1. Confirm the app's data source"* cell and run it. This
    proves the table the app will read actually exists and has data:
@@ -1187,7 +1189,7 @@ query it directly — the query runs on Snowflake and the results come back to y
 copy. You'll also cache it with a Materialized View and push a native query with
 `remote_query`.
 
-**Where in Databricks.** Notebook `notebooks/27_lab_h1_snowflake_federation` (open it from
+**Where in Databricks.** Notebook `notebooks/H_external_snowflake/27_lab_h1_snowflake_federation` (open it from
 the **Workspace** menu), plus a one-time secret set from a terminal.
 
 **Steps.**
@@ -1225,7 +1227,7 @@ privilege on the metastore. If you don't have those, watch the instructor run it
 Databricks table, refresh it incrementally with `MERGE`, and schedule it — then compare
 copy vs federate.
 
-**Where in Databricks.** Notebook `notebooks/28_lab_h2_scheduled_ingest`, then **Jobs &
+**Where in Databricks.** Notebook `notebooks/H_external_snowflake/28_lab_h2_scheduled_ingest`, then **Jobs &
 Pipelines** to schedule it.
 
 **Steps.**
@@ -1267,7 +1269,7 @@ model in the AI Playground, then call the same model from SQL. ("Foundation mode
 Databricks' name for the ready-to-use LLMs it hosts.)
 
 **Where in Databricks.** The **AI Playground** (left sidebar, usually under **Machine
-Learning → Playground**) for chatting; the notebook `notebooks/25_lab_i1_llm_playground`
+Learning → Playground**) for chatting; the notebook `notebooks/I_optional_deep_dives/25_lab_i1_llm_playground`
 (open from **Workspace**) for calling a model from code.
 
 **Steps.**
@@ -1277,7 +1279,7 @@ Learning → Playground**) for chatting; the notebook `notebooks/25_lab_i1_llm_p
    (see the warning below). Pick one, type a prompt like *"In two sentences, explain what a
    no-claims discount is,"* and read the reply. This is a safe place to try prompts before
    putting them into SQL or code.
-3. Now call a model from code. Open `notebooks/25_lab_i1_llm_playground` and attach
+3. Now call a model from code. Open `notebooks/I_optional_deep_dives/25_lab_i1_llm_playground` and attach
    **Serverless** compute.
 4. Look at the `LLM_ENDPOINT` line near the top. It is set to `databricks-gpt-oss-120b`, an
    open-weight model that is commonly available. **If that name was *not* in your Playground
@@ -1312,7 +1314,7 @@ often a policy will have a claim, record the experiment with **MLflow** (the bui
 for tracking models), and register a governed, named version of the model so it can be
 reused and audited.
 
-**Where in Databricks.** The notebook `notebooks/26_lab_i2_mlops_glm` (open from
+**Where in Databricks.** The notebook `notebooks/I_optional_deep_dives/26_lab_i2_mlops_glm` (open from
 **Workspace**).
 
 > ⚠️ **Pick a recent serverless environment first.** This lab uses the `mlflow` and
@@ -1321,7 +1323,7 @@ reused and audited.
 > version. On a very old/default environment this lab fails with `No module named 'mlflow'`.
 
 **Steps.**
-1. Open `notebooks/26_lab_i2_mlops_glm`, attach **Serverless** compute, and select a recent
+1. Open `notebooks/I_optional_deep_dives/26_lab_i2_mlops_glm`, attach **Serverless** compute, and select a recent
    **Environment** version (see the warning above).
 2. **Section 1 (given)** — run it. It builds the training table: one row per policy with a
    `claim_count` (how many claims that policy had) joined on, and prints the overall claim

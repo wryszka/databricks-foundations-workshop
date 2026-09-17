@@ -18,7 +18,7 @@ Databricks stores data in.
 **What this is.** Your first look at the data. You'll read the same table of insurance
 policies from both SQL and Python, draw a small chart, and try the built-in AI assistant.
 
-**Where in Databricks.** Notebook `notebooks/02_lab_a1_meet_platform` — open it from the
+**Where in Databricks.** Notebook `notebooks/A_get_in_and_query/02_lab_a1_meet_platform` — open it from the
 **Workspace** menu on the left (`databricks-foundations-workshop → notebooks`).
 
 **Steps.**
@@ -64,7 +64,7 @@ ask it to generate a whole cell, e.g. *"average premium by region for each tenan
 **What this is.** You'll save a reusable query as a **view**, and discover that AI is
 available as an ordinary SQL function — no special setup.
 
-**Where in Databricks.** Notebook `notebooks/03_lab_a2_sql_warehouse` (Workspace →
+**Where in Databricks.** Notebook `notebooks/A_get_in_and_query/03_lab_a2_sql_warehouse` (Workspace →
 notebooks). Later steps mention the **SQL Editor** (left menu).
 
 **Steps.**
@@ -100,7 +100,7 @@ repository (version-controlled code) into your workspace. It's literally how thi
 arrived.
 
 **Where in Databricks.** The **Workspace** menu (for the clicks) and notebook
-`notebooks/04_lab_a3_git_folders` (for the confirmation cell). This is mostly a UI action.
+`notebooks/A_get_in_and_query/04_lab_a3_git_folders` (for the confirmation cell). This is mostly a UI action.
 
 **Steps.**
 1. You already did this in Part 0, so here you're just confirming you understand it. In
@@ -110,13 +110,13 @@ arrived.
    `https://github.com/wryszka/databricks-foundations-workshop`, leave the provider as
    **GitHub**, and click **Create Git folder**. (You've already got this folder, so you
    don't need to create it again — just note the steps.)
-4. Open `notebooks/04_lab_a3_git_folders` and run the single code cell. It prints the path
+4. Open `notebooks/A_get_in_and_query/04_lab_a3_git_folders` and run the single code cell. It prints the path
    where the notebook lives, showing you're running from a repo-backed folder.
 5. Note the tip: to use the **Git** button (pull/commit changes on a branch), a private
    repo needs a Git credential set under **Settings → Linked accounts** first.
 
 **You should see.** A printed line like
-`This notebook lives at: /Workspace/Users/you/databricks-foundations-workshop/notebooks/04_lab_a3_git_folders`.
+`This notebook lives at: /Workspace/Users/you/databricks-foundations-workshop/notebooks/A_get_in_and_query/04_lab_a3_git_folders`.
 
 **Needs the instructor.** Creating a Git folder against a *private* repo needs a linked
 Git credential — your instructor will show this if relevant; the public workshop repo
@@ -130,7 +130,7 @@ needs nothing.
 paste those into a notebook — you store them in a **secret scope** and read them back by
 name. Here you read a pre-made secret.
 
-**Where in Databricks.** Notebook `notebooks/05_lab_a4_secrets`. Creating a secret is a
+**Where in Databricks.** Notebook `notebooks/A_get_in_and_query/05_lab_a4_secrets`. Creating a secret is a
 one-off command in a **terminal** (your instructor may have done this already for the room).
 
 **Steps.**

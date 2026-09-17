@@ -13,7 +13,7 @@ model in the AI Playground, then call the same model from SQL. ("Foundation mode
 Databricks' name for the ready-to-use LLMs it hosts.)
 
 **Where in Databricks.** The **AI Playground** (left sidebar, usually under **Machine
-Learning → Playground**) for chatting; the notebook `notebooks/25_lab_i1_llm_playground`
+Learning → Playground**) for chatting; the notebook `notebooks/I_optional_deep_dives/25_lab_i1_llm_playground`
 (open from **Workspace**) for calling a model from code.
 
 **Steps.**
@@ -23,7 +23,7 @@ Learning → Playground**) for chatting; the notebook `notebooks/25_lab_i1_llm_p
    (see the warning below). Pick one, type a prompt like *"In two sentences, explain what a
    no-claims discount is,"* and read the reply. This is a safe place to try prompts before
    putting them into SQL or code.
-3. Now call a model from code. Open `notebooks/25_lab_i1_llm_playground` and attach
+3. Now call a model from code. Open `notebooks/I_optional_deep_dives/25_lab_i1_llm_playground` and attach
    **Serverless** compute.
 4. Look at the `LLM_ENDPOINT` line near the top. It is set to `databricks-gpt-oss-120b`, an
    open-weight model that is commonly available. **If that name was *not* in your Playground
@@ -58,7 +58,7 @@ often a policy will have a claim, record the experiment with **MLflow** (the bui
 for tracking models), and register a governed, named version of the model so it can be
 reused and audited.
 
-**Where in Databricks.** The notebook `notebooks/26_lab_i2_mlops_glm` (open from
+**Where in Databricks.** The notebook `notebooks/I_optional_deep_dives/26_lab_i2_mlops_glm` (open from
 **Workspace**).
 
 > ⚠️ **Pick a recent serverless environment first.** This lab uses the `mlflow` and
@@ -67,7 +67,7 @@ reused and audited.
 > version. On a very old/default environment this lab fails with `No module named 'mlflow'`.
 
 **Steps.**
-1. Open `notebooks/26_lab_i2_mlops_glm`, attach **Serverless** compute, and select a recent
+1. Open `notebooks/I_optional_deep_dives/26_lab_i2_mlops_glm`, attach **Serverless** compute, and select a recent
    **Environment** version (see the warning above).
 2. **Section 1 (given)** — run it. It builds the training table: one row per policy with a
    `claim_count` (how many claims that policy had) joined on, and prints the overall claim

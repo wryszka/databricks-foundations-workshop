@@ -68,7 +68,7 @@ is set to `yes`.
 | `2_silver_property_policies` | a small, clean second line of business |
 | `build_all=yes` also builds | `2_silver_policies`, `2_silver_claims`, `3_gold_portfolio_summary`, `3_gold_loss_ratio_monthly` |
 
-Quick start: import this repo (Workspace → Git folder), open `00_config`, set your
+Quick start: import this repo (Workspace → Git folder), open `notebooks/00_setup/00_config`, set your
 catalog/schema, run `01_data_generator`, then follow the labs.
 
 ## Step-by-step attendee runbook (start here if you're new)
@@ -101,8 +101,18 @@ add to as the workshop takes shape:
 ## Layout
 
 ```
-notebooks/    "to solve" lab notebooks (00_config, 01_data_generator, then NN_lab_*)
-solutions/    complete, runnable solution notebooks (NN_solution_*)
+notebooks/    "to solve" lab notebooks, grouped by track:
+  00_setup/                00_config, 01_data_generator
+  A_get_in_and_query/      02–05
+  B_bring_a_source_in/     06–08
+  C_govern_across_tenants/ 09–16
+  D_transform_and_schedule/17–18
+  E_analytics_and_ai/      19–21
+  F_share/                 22
+  G_app/                   23–24
+  H_external_snowflake/    27–28 (optional)
+  I_optional_deep_dives/   25–26
+solutions/    complete, runnable solutions in the same per-track subfolders (NN_solution_*)
 app/          the G2 Databricks App (FastAPI: Genie Q&A + portfolio lookup)
-docs/         AUTHORING.md — conventions and the lab numbering map
+docs/         AUTHORING.md (conventions + numbering map) and guide/ (runbook sections)
 ```

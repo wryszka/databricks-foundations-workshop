@@ -18,7 +18,7 @@ plain-text table format.
 **What this is.** Onboarding a new client's extract. A messy CSV has arrived; you land it
 unchanged (bronze), then produce a clean, correctly typed version (silver).
 
-**Where in Databricks.** Notebook `notebooks/06_lab_b1_file_upload`. The file lives in your
+**Where in Databricks.** Notebook `notebooks/B_bring_a_source_in/06_lab_b1_file_upload`. The file lives in your
 **raw volume**, which you can also see under **Catalog** → your catalog → schema → Volumes.
 
 **Steps.**
@@ -55,7 +55,7 @@ negative premiums, save as 2_silver_policies"* and review what it writes.
 folder and processes **only files it hasn't seen before**. You'll load one batch, drop a
 second file in, and watch only the new file get picked up.
 
-**Where in Databricks.** Notebook `notebooks/07_lab_b2_autoloader`. The watched folder is
+**Where in Databricks.** Notebook `notebooks/B_bring_a_source_in/07_lab_b2_autoloader`. The watched folder is
 `landing/claims/` in your landing volume.
 
 **Steps.**
@@ -89,7 +89,7 @@ a bronze table, processing only new files"*.
 inserts brand-new rows **in a single statement**. With **Change Data Feed** turned on, you
 can then read exactly which rows were updated versus inserted.
 
-**Where in Databricks.** Notebook `notebooks/08_lab_b3_merge_cdf`.
+**Where in Databricks.** Notebook `notebooks/B_bring_a_source_in/08_lab_b3_merge_cdf`.
 
 **Steps.**
 1. Open the notebook and run `%run ./00_config`.
