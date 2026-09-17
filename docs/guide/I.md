@@ -1,4 +1,4 @@
-## Track I — Optional deep-dives
+## I. Optional Deep Dives
 
 Two extra labs for anyone who is curious or finishes early. Neither is required to complete
 the workshop. The first shows you that large language models (the technology behind chat

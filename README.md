@@ -35,15 +35,15 @@ isolation, security, and sharing labs.
 
 | Track | Labs |
 |---|---|
-| A — Get in & query | A1 meet the platform · A2 Databricks SQL · A3 Git folders · A4 secrets |
-| B — Bring a source in | B1 file upload → Delta · B2 Auto Loader · B3 MERGE + Change Data Feed |
-| C — Govern across tenants | C1 isolation · C2 RLS + masking · C3 managed-vs-external · C4 time travel + SCD2 · C5 clones · C6 maintenance · C7 Catalog Explorer + lineage · C8 system tables |
-| D — Transform & schedule | D1 declarative pipeline · D2 schedule as a job |
-| E — Analytics & AI | E1 Genie · E2 dashboard from Genie's SQL · E3 AI functions in SQL |
-| F — Share | F1 Delta Sharing, attendee-to-attendee |
-| G — Put an app in front | G1 Lakebase (+ branch/clone) · G2 simple app over Genie + Lakebase (`app/`) |
-| H — External DB (Snowflake) *· optional* | H1 federation · H2 scheduled ingestion |
-| I — Optional deep-dives | I1 LLM primer / AI Playground · I2 MLOps GLM + MLflow |
+| A. Get in and Query Data | A1 meet the platform · A2 Databricks SQL · A3 Git folders · A4 secrets |
+| B. Bring in a Data Source | B1 file upload → Delta · B2 Auto Loader · B3 MERGE + Change Data Feed |
+| C. Govern Data across Tenants | C1 isolation · C2 RLS + masking · C3 managed-vs-external · C4 time travel + SCD2 · C5 clones · C6 maintenance · C7 Catalog Explorer + lineage · C8 system tables |
+| D. Transform and Schedule Data | D1 declarative pipeline · D2 schedule as a job |
+| E. Analyse and Apply AI | E1 Genie · E2 dashboard from Genie's SQL · E3 AI functions in SQL |
+| F. Share Data | F1 Delta Sharing, attendee-to-attendee |
+| G. Build a Data App | G1 Lakebase (+ branch/clone) · G2 simple app over Genie + Lakebase (`app/`) |
+| H. Connect an External Database (Snowflake) *· optional* | H1 federation · H2 scheduled ingestion |
+| I. Optional Deep Dives | I1 LLM primer / AI Playground · I2 MLOps GLM + MLflow |
 
 **Verified green headless on serverless:** A1–A4, B1–B3, C1–C8, D1 (live pipeline run), D2
 check-cell, E3 (all five `ai_*` functions), I1 (`ai_query` via `databricks-gpt-oss-120b`),

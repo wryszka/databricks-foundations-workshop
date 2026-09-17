@@ -1,4 +1,4 @@
-## Track D — Transform and schedule it
+## D. Transform and Schedule Data
 
 So far you've written transformations by hand in notebooks. This track shows the production
 way to do it: a **declarative pipeline** where you simply declare the tables you want and the

@@ -1,4 +1,4 @@
-## Track B — Bring a source in
+## B. Bring in a Data Source
 
 This track is about getting data *into* the platform and cleaning it up — the everyday
 job of onboarding a customer's data. You'll load a deliberately messy file by hand, then

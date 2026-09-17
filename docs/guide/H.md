@@ -1,4 +1,4 @@
-## Track H — Connect to an external database (Snowflake) · *Optional*
+## H. Connect an External Database (Snowflake) · *Optional*
 
 Not every client will move their data to you. This optional track connects Keystone to a
 client's existing **Snowflake** database (another cloud data warehouse) two ways: query it

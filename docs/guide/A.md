@@ -1,4 +1,4 @@
-## Track A — Get in and query
+## A. Get in and Query Data
 
 This track is about finding your feet. You'll open your first notebook, look at the
 sample data two different ways (with SQL and with Python), make a quick chart, save a

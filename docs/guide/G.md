@@ -1,4 +1,4 @@
-## Track G — Put an application in front of it
+## G. Build a Data App
 
 The tables you built all day are perfect for reporting, but a real *product* needs a fast
 database behind a user interface and a screen people can actually click. Track G adds the

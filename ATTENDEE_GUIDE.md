@@ -121,15 +121,15 @@ finish everything, and that's fine: there is more here than one day needs.
 
 | Track | What it's about | Labs |
 |---|---|---|
-| **A — Get in and query** | Find your way around, run your first queries, and meet the tools. | A1 meet the platform · A2 Databricks SQL · A3 Git folders · A4 secrets |
-| **B — Bring a source in** | Get data onto the platform: a one-off file, then files that keep arriving, then keeping a table in sync. | B1 file upload · B2 Auto Loader · B3 MERGE + Change Data Feed |
-| **C — Govern it across tenants** | Keep each customer's data separate and safe, and understand how the platform tracks and protects data. | C1 isolation · C2 row security + masking · C3 managed vs external tables · C4 time travel + history · C5 clones · C6 maintenance · C7 catalog + lineage · C8 system tables |
-| **D — Transform and schedule it** | Turn raw data into clean, ready-to-use tables with a pipeline, and run it automatically. | D1 declarative pipeline · D2 schedule as a job |
-| **E — Analytics and AI on your data** | Ask questions in plain English, build a dashboard, and use built-in AI. | E1 Genie · E2 dashboard · E3 AI functions in SQL |
-| **F — Share it back out** | Hand governed results to someone outside your walls, safely. | F1 Delta Sharing |
-| **G — Put an application in front of it** | Add a fast operational database and a small app over everything you built. | G1 Lakebase · G2 a simple app |
-| **H — External database (Snowflake)** *· optional* | Connect to a client's existing Snowflake database: query it live, or copy it on a schedule. | H1 federation · H2 scheduled ingestion |
-| **I — Optional deep-dives** | Extra material for those who want more or finish early. | I1 the AI Playground / language models · I2 a simple predictive model with tracking |
+| **A. Get in and Query Data** | Find your way around, run your first queries, and meet the tools. | A1 meet the platform · A2 Databricks SQL · A3 Git folders · A4 secrets |
+| **B. Bring in a Data Source** | Get data onto the platform: a one-off file, then files that keep arriving, then keeping a table in sync. | B1 file upload · B2 Auto Loader · B3 MERGE + Change Data Feed |
+| **C. Govern Data across Tenants** | Keep each customer's data separate and safe, and understand how the platform tracks and protects data. | C1 isolation · C2 row security + masking · C3 managed vs external tables · C4 time travel + history · C5 clones · C6 maintenance · C7 catalog + lineage · C8 system tables |
+| **D. Transform and Schedule Data** | Turn raw data into clean, ready-to-use tables with a pipeline, and run it automatically. | D1 declarative pipeline · D2 schedule as a job |
+| **E. Analyse and Apply AI** | Ask questions in plain English, build a dashboard, and use built-in AI. | E1 Genie · E2 dashboard · E3 AI functions in SQL |
+| **F. Share Data** | Hand governed results to someone outside your walls, safely. | F1 Delta Sharing |
+| **G. Build a Data App** | Add a fast operational database and a small app over everything you built. | G1 Lakebase · G2 a simple app |
+| **H. Connect an External Database (Snowflake)** *· optional* | Connect to a client's existing Snowflake database: query it live, or copy it on a schedule. | H1 federation · H2 scheduled ingestion |
+| **I. Optional Deep Dives** | Extra material for those who want more or finish early. | I1 the AI Playground / language models · I2 a simple predictive model with tracking |
 
 **How to read the difficulty:**
 
@@ -148,7 +148,7 @@ you, and an honest note wherever a step needs the instructor, a partner, or extr
 
 # Part 2 — The labs, step by step
 
-## Track A — Get in and query
+## A. Get in and Query Data
 
 This track is about finding your feet. You'll open your first notebook, look at the
 sample data two different ways (with SQL and with Python), make a quick chart, save a
@@ -308,7 +308,7 @@ the notebook prints a friendly message rather than failing if the scope is missi
 
 ---
 
-## Track B — Bring a source in
+## B. Bring in a Data Source
 
 This track is about getting data *into* the platform and cleaning it up — the everyday
 job of onboarding a customer's data. You'll load a deliberately messy file by hand, then
@@ -428,7 +428,7 @@ on claim_id, then show me what changed using Change Data Feed"*.
 
 ---
 
-## Track C — Govern it across tenants
+## C. Govern Data across Tenants
 
 This is the heart of building a platform for many customers on shared infrastructure. You
 will learn how to keep each insurer's data separate and safe, how to protect sensitive
@@ -696,7 +696,7 @@ may also be limited. Note which probes returned `[OK]` on your workspace.
 
 ---
 
-## Track D — Transform and schedule it
+## D. Transform and Schedule Data
 
 So far you've written transformations by hand in notebooks. This track shows the production
 way to do it: a **declarative pipeline** where you simply declare the tables you want and the
@@ -790,7 +790,7 @@ After **Run now**, both turn green; opening the check task's output shows a line
 
 ---
 
-## Track E — Analytics and AI on your data
+## E. Analyse and Apply AI
 
 So far you have moved and governed data. This track is about **getting answers out of it**.
 You'll let people ask questions in plain English (Genie), turn one of those questions into
@@ -949,7 +949,7 @@ write the SQL for you.
 
 ---
 
-## Track F — Share it back out
+## F. Share Data
 
 A data platform is only useful if the results can leave your walls safely. Track F is
 about **Delta Sharing**: an open way to hand a live table to someone in a *different*
@@ -1040,7 +1040,7 @@ you follow along.
 
 ---
 
-## Track G — Put an application in front of it
+## G. Build a Data App
 
 The tables you built all day are perfect for reporting, but a real *product* needs a fast
 database behind a user interface and a screen people can actually click. Track G adds the
@@ -1173,7 +1173,7 @@ the configuration steps in the notebook.
 
 ---
 
-## Track H — Connect to an external database (Snowflake) · *Optional*
+## H. Connect an External Database (Snowflake) · *Optional*
 
 Not every client will move their data to you. This optional track connects Keystone to a
 client's existing **Snowflake** database (another cloud data warehouse) two ways: query it
@@ -1254,7 +1254,7 @@ include Snowflake today, so this lab ingests through the H1 federation connectio
 
 ---
 
-## Track I — Optional deep-dives
+## I. Optional Deep Dives
 
 Two extra labs for anyone who is curious or finishes early. Neither is required to complete
 the workshop. The first shows you that large language models (the technology behind chat

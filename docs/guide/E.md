@@ -1,4 +1,4 @@
-## Track E — Analytics and AI on your data
+## E. Analyse and Apply AI
 
 So far you have moved and governed data. This track is about **getting answers out of it**.
 You'll let people ask questions in plain English (Genie), turn one of those questions into

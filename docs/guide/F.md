@@ -1,4 +1,4 @@
-## Track F — Share it back out
+## F. Share Data
 
 A data platform is only useful if the results can leave your walls safely. Track F is
 about **Delta Sharing**: an open way to hand a live table to someone in a *different*

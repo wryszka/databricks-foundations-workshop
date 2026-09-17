@@ -1,4 +1,4 @@
-## Track C — Govern it across tenants
+## C. Govern Data across Tenants
 
 This is the heart of building a platform for many customers on shared infrastructure. You
 will learn how to keep each insurer's data separate and safe, how to protect sensitive
