@@ -37,7 +37,7 @@ isolation, security, and sharing labs.
 |---|---|
 | A. Get in and Query Data | A1 meet the platform · A2 Databricks SQL · A3 Git folders · A4 secrets |
 | B. Bring in a Data Source | B1 file upload → Delta · B2 Auto Loader · B3 MERGE + Change Data Feed |
-| C. Govern Data across Tenants | C1 isolation · C2 RLS + masking · C3 managed-vs-external · C4 time travel + SCD2 · C5 clones · C6 maintenance · C7 Catalog Explorer + lineage · C8 system tables |
+| C. Govern Data across Tenants | C0 Unity Catalog tour · C1 isolation · C2 RLS + masking · C3 managed-vs-external · C4 time travel + SCD2 · C5 clones · C6 maintenance · C7 Catalog Explorer + lineage · C8 system tables |
 | D. Transform and Schedule Data | D1 declarative pipeline · D2 schedule as a job |
 | E. Analyse and Apply AI | E1 Genie · E2 dashboard from Genie's SQL · E3 AI functions in SQL |
 | F. Share Data | F1 Delta Sharing, attendee-to-attendee |

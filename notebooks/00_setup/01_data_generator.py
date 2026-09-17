@@ -351,4 +351,26 @@ else:
 
 # COMMAND ----------
 
+# MAGIC %md ## Unity Catalog tour entities (used by lab C0)
+
+# COMMAND ----------
+
+# Small example objects the UC concepts tour (lab C0) walks through — seeded here so they
+# exist in the schema even before anyone runs the tour.
+spark.sql(f"""
+    CREATE OR REPLACE TABLE {FQ}.uc_tour_regions (
+        region STRING, risk_factor DOUBLE COMMENT 'relative claim risk vs average')
+""")
+spark.sql(f"""INSERT OVERWRITE {FQ}.uc_tour_regions VALUES
+    ('Metro North',1.25),('Metro South',1.10),('Coastal',1.05),('Central',1.00),
+    ('Highland',0.92),('Lakes',0.95),('Border',0.98),('Western',0.90)""")
+spark.sql(f"""
+    CREATE OR REPLACE FUNCTION {FQ}.premium_band(p DOUBLE) RETURNS STRING
+    COMMENT 'Bucket an annual premium into low/medium/high'
+    RETURN CASE WHEN p < 400 THEN 'low' WHEN p < 700 THEN 'medium' ELSE 'high' END
+""")
+print("created uc_tour_regions table + premium_band function")
+
+# COMMAND ----------
+
 # MAGIC %md ✅ **Done.** Data is ready. Start with lab `A1`.

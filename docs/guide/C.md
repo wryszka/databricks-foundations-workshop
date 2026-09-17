@@ -12,6 +12,36 @@ holds *tables*, and *grants* decide who can see what).
 Before starting Track C, make sure you ran `01_data_generator` with the **build_all**
 widget set to `yes` — several labs read the `2_silver_policies` table it creates.
 
+### C0. Unity Catalog tour (start here)
+
+**What this is.** A guided, read-and-run tour of **Unity Catalog** — the governance layer
+that organises and secures everything. Unlike the other labs there are no gaps to fill: you
+read each note and run the cell under it. It both *explains* and *creates* one of every kind
+of object (table, view, volume, function, model) and shows how access is controlled with
+grants (RBAC) and tags (ABAC). Do this before the rest of Track C so the concepts and
+vocabulary are clear.
+
+**Where in Databricks.** Notebook
+`notebooks/C_govern_across_tenants/00_lab_c0_unity_catalog_tour` (Workspace → your
+`databricks-foundations-workshop/notebooks` folder). Attach **Serverless** and pick a recent
+**Environment** (the model step uses `mlflow`).
+
+**Steps.**
+1. Open the notebook and run the `%run ../00_setup/00_config` cell.
+2. Work top to bottom: for each markdown note, run the cell beneath it. You'll see where you
+   are (metastore/catalog/schema), then create a **table** (`uc_tour_regions`), a **view**,
+   look at **volumes**, create a **function** (`premium_band`), register a placeholder
+   **model**, **grant** a privilege and list grants (RBAC), and **tag** a column (ABAC).
+3. Read the recap table at the end.
+
+**You should see.** A row of your current metastore/catalog/schema; the new table and view;
+your volumes and their files; the function used in a query; (if the environment allows) a
+registered model; a grants listing; and a column tag. No errors — any step your workspace
+can't do (model, tagging, granting) prints a short note and continues.
+
+**💡 Genie Code.** Ask it things like *"list all tables and their owners in my schema"* to
+explore Unity Catalog by conversation.
+
 ### C1. Tenant isolation with schemas and grants
 
 **What this is.** The number-one question when one platform serves competing customers is

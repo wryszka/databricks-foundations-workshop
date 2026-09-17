@@ -60,6 +60,7 @@ Same `NN` number for both. Numbering map below is fixed to avoid collisions.
 | 06 | B1 | file_upload | messy `raw/policies.csv` → bronze → silver |
 | 07 | B2 | autoloader | Auto Loader on `landing/claims/`; drop `claims_batch_02.csv` mid-lab |
 | 08 | B3 | merge_cdf | `MERGE` upsert + Change Data Feed read-back |
+| 00† | C0 | unity_catalog_tour | Track C **opener** in the C folder — runnable UC concepts tour that creates example entities; no TODOs, no solution pair (†sorts first in the folder) |
 | 09 | C1 | isolation | schema-per-tenant + grants (USE/SELECT/browse) |
 | 10 | C2 | rls_masking | row filter + column mask on a shared table |
 | 11 | C3 | managed_vs_external | create managed, DROP, `UNDROP`/time-travel myth-buster |
