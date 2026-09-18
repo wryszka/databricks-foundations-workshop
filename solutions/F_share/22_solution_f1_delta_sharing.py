@@ -100,12 +100,24 @@ dbutils.widgets.text("partner_sharing_id", "", "Partner sharing identifier (blan
 partner = dbutils.widgets.get("partner_sharing_id").strip()
 
 if partner:
-    try_sql(f"CREATE RECIPIENT IF NOT EXISTS {RECIPIENT} USING ID '{partner}'",
-            need="CREATE RECIPIENT on metastore")
+    made = try_sql(f"CREATE RECIPIENT IF NOT EXISTS {RECIPIENT} USING ID '{partner}'",
+                   need="CREATE RECIPIENT on metastore")
 else:
-    try_sql(f"CREATE RECIPIENT IF NOT EXISTS {RECIPIENT}", need="CREATE RECIPIENT on metastore")
+    made = try_sql(f"CREATE RECIPIENT IF NOT EXISTS {RECIPIENT}", need="CREATE RECIPIENT on metastore")
 
-try_sql(f"GRANT SELECT ON SHARE {SHARE} TO RECIPIENT {RECIPIENT}", need="owner of the share")
+if made:
+    try_sql(f"GRANT SELECT ON SHARE {SHARE} TO RECIPIENT {RECIPIENT}", need="owner of the share")
+else:
+    print("\n" + "-" * 78)
+    print("Delta Sharing IS available and you just AUTHORED a share: you created it and")
+    print("added a tenant's table (steps 0-1). What did NOT run is creating an EXTERNAL")
+    print("RECIPIENT — that needs 'External Delta Sharing' enabled on the metastore, and")
+    print("Databricks Free Edition does not allow enabling it (no account console).")
+    print("So on Free you CAN: create shares and add/scope tables to them.")
+    print("On Free you CANNOT: create an external recipient / hand the share to an outside")
+    print("party — that step is demonstrated on a full workspace (where an admin has enabled")
+    print("External Delta Sharing) and needs a second person to mount the share.")
+    print("-" * 78)
 
 # COMMAND ----------
 
