@@ -38,9 +38,13 @@ scopes = [s.name for s in dbutils.secrets.listScopes()]
 print(f"scopes visible to you: {scopes}")
 
 if SCOPE in scopes:
-    value = dbutils.secrets.get(scope=SCOPE, key=KEY)          # returns the real value...
-    print(f"read '{KEY}' from '{SCOPE}'. Length = {len(value)} chars.")
-    print(f"Notebook output redacts it automatically: {value}")  # ...but output shows [REDACTED]
+    try:
+        value = dbutils.secrets.get(scope=SCOPE, key=KEY)          # returns the real value...
+        print(f"read '{KEY}' from '{SCOPE}'. Length = {len(value)} chars.")
+        print(f"Notebook output redacts it automatically: {value}")  # ...but output shows [REDACTED]
+    except Exception:
+        print(f"Scope '{SCOPE}' exists but key '{KEY}' isn't set yet — add it with the CLI in")
+        print(f"step 1: databricks secrets put-secret {SCOPE} {KEY}")
 else:
     print(f"Scope '{SCOPE}' not found yet — create it with the CLI in step 1, then re-run.")
     print("The pattern is always: dbutils.secrets.get(scope=..., key=...)")
