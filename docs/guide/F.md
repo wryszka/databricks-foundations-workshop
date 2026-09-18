@@ -81,8 +81,10 @@ live and correctly scoped.
 called keystone_share and add only the bricksurance_se rows of 3_gold_portfolio_summary"
 and let it draft the `CREATE SHARE` / `ALTER SHARE` statements for you.
 
-**Needs the instructor / a partner / live infra.** This lab genuinely needs **two people
-in two workspaces**, and creating shares/recipients needs **metastore-admin** privilege.
-On **Databricks Free Edition**, confirm with your instructor whether Delta Sharing is
-available to you — if not, the instructor demonstrates the publish-and-query round-trip and
-you follow along.
+**On Free Edition.** Partially. ✅ You *can* **author the share** — create it and add a
+tenant's table (the notebook self-grants the `USE CATALOG` / `USE SCHEMA` you need). ❌ You
+**cannot create an external recipient**: Free reports *"External Delta Sharing is not enabled
+on the metastore"* and Free has no account console to enable it. So the actual hand-off to a
+partner is shown on a full workspace (where an admin has enabled External Delta Sharing) and
+needs a second person to mount the share. On Free, treat F1 as "author the share" + watch the
+recipient hand-off.

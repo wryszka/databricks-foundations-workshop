@@ -874,9 +874,9 @@ click **Show generated code** — the SQL it generated (a `SELECT ... FROM
 you'd rather build a query in a notebook, open the Genie Code panel there and describe what
 you want.
 
-**Needs live infra.** Creating a Genie space is a click-through in the user interface, so
-you do it yourself; there is nothing to run headless. Genie's availability can vary on Free
-Edition — if you don't have it, watch the instructor's demo.
+**On Free Edition.** ✅ Verified — Genie works on Free; a space was created over these exact
+tables. Creating a space is normally a click-through in the user interface, so you do it
+yourself (there's nothing to run headless).
 
 ### E2. Build a dashboard from Genie's SQL
 
@@ -924,8 +924,8 @@ line chart of monthly claims cost.
 **💡 Genie Code.** You can prompt Genie Code to generate a starter dashboard definition and
 then tweak it, instead of adding each tile by hand.
 
-**Needs live infra.** Building and publishing the dashboard object is a user-interface
-action, so you do it yourself; the notebook only verifies the underlying numbers.
+**On Free Edition.** ✅ The tile SQL is verified on Free; building and publishing the
+dashboard object is a user-interface action, so you do that part yourself.
 
 ### E3. AI functions in SQL
 
@@ -1063,11 +1063,13 @@ live and correctly scoped.
 called keystone_share and add only the bricksurance_se rows of 3_gold_portfolio_summary"
 and let it draft the `CREATE SHARE` / `ALTER SHARE` statements for you.
 
-**Needs the instructor / a partner / live infra.** This lab genuinely needs **two people
-in two workspaces**, and creating shares/recipients needs **metastore-admin** privilege.
-On **Databricks Free Edition**, confirm with your instructor whether Delta Sharing is
-available to you — if not, the instructor demonstrates the publish-and-query round-trip and
-you follow along.
+**On Free Edition.** Partially. ✅ You *can* **author the share** — create it and add a
+tenant's table (the notebook self-grants the `USE CATALOG` / `USE SCHEMA` you need). ❌ You
+**cannot create an external recipient**: Free reports *"External Delta Sharing is not enabled
+on the metastore"* and Free has no account console to enable it. So the actual hand-off to a
+partner is shown on a full workspace (where an admin has enabled External Delta Sharing) and
+needs a second person to mount the share. On Free, treat F1 as "author the share" + watch the
+recipient hand-off.
 
 ---
 
@@ -1135,10 +1137,9 @@ shape without building anything.
 **💡 Genie Code.** You could ask Genie Code to "write a Python call to the Databricks
 database API that lists all database instances" instead of typing TODO 1 yourself.
 
-**Needs the instructor / a partner / live infra.** Creating a real instance + synced table
-+ branch (the `provision=yes` path) builds infrastructure that takes minutes and may not be
-available on **Databricks Free Edition** — confirm with your instructor before flipping the
-widget; otherwise the dry-run printouts and the instructor's live demo cover it.
+**On Free Edition.** ✅ Verified — a Lakebase instance was provisioned and reached
+**AVAILABLE** on Free (Free allows **one** Lakebase project). The `provision=yes` path builds
+real infrastructure and takes a few minutes; leave it `no` if you just want the walkthrough.
 
 ### G2. A simple app powered by Genie + Lakebase
 
@@ -1196,11 +1197,9 @@ and the portfolio page lists the same rows you saw in step 2.
 **💡 Genie Code.** Genie Code can help you edit or extend `app.py` — e.g. "add a second API
 endpoint that returns total premium per tenant" — generating the FastAPI route for you.
 
-**Needs the instructor / a partner / live infra.** A real app **deploy** needs the
-Databricks command-line tool and a workspace where **Databricks Apps** is enabled (confirm
-for **Free Edition**), plus a working **Genie space id** from lab E1 and a SQL warehouse.
-If Apps isn't available to you, the instructor deploys and demonstrates it and you follow
-the configuration steps in the notebook.
+**On Free Edition.** ✅ Verified — the app **deployed and is RUNNING** on Free (Free allows
+**up to three** apps; each runs ~24h after start, then you restart it). You need the
+Databricks command-line tool, a **Genie space id** from lab E1, and a SQL warehouse.
 
 ---
 

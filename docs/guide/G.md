@@ -62,10 +62,9 @@ shape without building anything.
 **💡 Genie Code.** You could ask Genie Code to "write a Python call to the Databricks
 database API that lists all database instances" instead of typing TODO 1 yourself.
 
-**Needs the instructor / a partner / live infra.** Creating a real instance + synced table
-+ branch (the `provision=yes` path) builds infrastructure that takes minutes and may not be
-available on **Databricks Free Edition** — confirm with your instructor before flipping the
-widget; otherwise the dry-run printouts and the instructor's live demo cover it.
+**On Free Edition.** ✅ Verified — a Lakebase instance was provisioned and reached
+**AVAILABLE** on Free (Free allows **one** Lakebase project). The `provision=yes` path builds
+real infrastructure and takes a few minutes; leave it `no` if you just want the walkthrough.
 
 ### G2. A simple app powered by Genie + Lakebase
 
@@ -123,8 +122,6 @@ and the portfolio page lists the same rows you saw in step 2.
 **💡 Genie Code.** Genie Code can help you edit or extend `app.py` — e.g. "add a second API
 endpoint that returns total premium per tenant" — generating the FastAPI route for you.
 
-**Needs the instructor / a partner / live infra.** A real app **deploy** needs the
-Databricks command-line tool and a workspace where **Databricks Apps** is enabled (confirm
-for **Free Edition**), plus a working **Genie space id** from lab E1 and a SQL warehouse.
-If Apps isn't available to you, the instructor deploys and demonstrates it and you follow
-the configuration steps in the notebook.
+**On Free Edition.** ✅ Verified — the app **deployed and is RUNNING** on Free (Free allows
+**up to three** apps; each runs ~24h after start, then you restart it). You need the
+Databricks command-line tool, a **Genie space id** from lab E1, and a SQL warehouse.

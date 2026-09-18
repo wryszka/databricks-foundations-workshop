@@ -51,9 +51,9 @@ click **Show generated code** — the SQL it generated (a `SELECT ... FROM
 you'd rather build a query in a notebook, open the Genie Code panel there and describe what
 you want.
 
-**Needs live infra.** Creating a Genie space is a click-through in the user interface, so
-you do it yourself; there is nothing to run headless. Genie's availability can vary on Free
-Edition — if you don't have it, watch the instructor's demo.
+**On Free Edition.** ✅ Verified — Genie works on Free; a space was created over these exact
+tables. Creating a space is normally a click-through in the user interface, so you do it
+yourself (there's nothing to run headless).
 
 ### E2. Build a dashboard from Genie's SQL
 
@@ -101,8 +101,8 @@ line chart of monthly claims cost.
 **💡 Genie Code.** You can prompt Genie Code to generate a starter dashboard definition and
 then tweak it, instead of adding each tile by hand.
 
-**Needs live infra.** Building and publishing the dashboard object is a user-interface
-action, so you do it yourself; the notebook only verifies the underlying numbers.
+**On Free Edition.** ✅ The tile SQL is verified on Free; building and publishing the
+dashboard object is a user-interface action, so you do that part yourself.
 
 ### E3. AI functions in SQL
 

@@ -58,9 +58,11 @@ The whole workshop was run end-to-end on a real Free Edition workspace (catalog 
 
 **One Free-Edition gap:** Materialized Views aren't enabled on Free serverless, so H1
 caches to a plain Delta table instead (handled in the notebook); `remote_query` also needs
-an explicit `database` (handled). **Genuinely manual by design:** E2 builds the dashboard in
-the UI (its tile SQL is verified), F1 needs a partner to mount the share, and the *true*
-cross-tenant isolation in C1/C2 needs a second principal to observe.
+an explicit `database` (handled). **Other Free limits:** F1 can **author** a share on Free
+(create + add table) but **can't create an external recipient** (Free can't enable External
+Delta Sharing) — the partner hand-off is shown on a full workspace. E2 builds the dashboard
+in the UI (tile SQL is verified). The *true* cross-tenant isolation in C1/C2 needs a second
+principal to observe.
 
 ### Data the generator produces
 

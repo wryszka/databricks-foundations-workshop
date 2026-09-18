@@ -67,6 +67,11 @@ def try_sql(sql, need=""):
             print("ERROR:", msg[:200])
         return False
 
+# You must hold USE CATALOG / USE SCHEMA on a table to add it to a share — grant to yourself.
+me = spark.sql("SELECT current_user()").first()[0]
+try_sql(f"GRANT USE CATALOG ON CATALOG {CATALOG} TO `{me}`", need="owner/admin")
+try_sql(f"GRANT USE SCHEMA ON SCHEMA {FQ} TO `{me}`", need="owner/admin")
+
 try_sql(f"CREATE SHARE IF NOT EXISTS {SHARE} COMMENT 'Keystone gold portfolio share'",
         need="CREATE SHARE on metastore")
 # Add just one tenant's partition — the recipient never sees the others.
@@ -82,6 +87,12 @@ try_sql(f"ALTER SHARE {SHARE} ADD TABLE {FQ}.`3_gold_portfolio_summary` "
 # MAGIC identifier* (`SELECT current_metastore()` in their workspace) and you set the
 # MAGIC `partner_sharing_id` widget. Leave it blank for **open sharing**, which produces an
 # MAGIC activation link file you can hand to any client.
+# MAGIC
+# MAGIC > **On Free Edition:** creating an external **recipient** needs *External Delta Sharing*
+# MAGIC > enabled on the metastore, which Free doesn't permit ("External Delta Sharing is not
+# MAGIC > enabled on the metastore"). So on Free you author the share (steps 0–1, which work)
+# MAGIC > and the recipient hand-off is shown on a full workspace. The helper prints a note
+# MAGIC > instead of failing, so the notebook still completes.
 
 # COMMAND ----------
 
