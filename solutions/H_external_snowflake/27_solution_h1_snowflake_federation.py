@@ -101,17 +101,22 @@ print("row count in Snowflake:", spark.sql(f"SELECT count(*) FROM {fq_source}").
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ## 4. Cache it with a Materialized View (MV)
-# MAGIC If the same federated data is read often, a **Materialized View** stores a local
-# MAGIC copy that refreshes on demand — faster and it takes load off Snowflake. (An MV is a
-# MAGIC managed table on Databricks; it lives in your own schema.)
+# MAGIC ## 4. Cache it locally
+# MAGIC If the same federated data is read often, cache a local copy — faster, and it takes
+# MAGIC load off Snowflake. The ideal is a **Materialized View (MV)**, which refreshes on
+# MAGIC demand. MVs need the serverless MV preview, which **isn't enabled on Free Edition**,
+# MAGIC so we try the MV and fall back to a plain Delta table (same idea) if it isn't allowed.
 
 # COMMAND ----------
 
-spark.sql(f"""
-    CREATE MATERIALIZED VIEW IF NOT EXISTS {FQ}.sf_source_cached AS
-    SELECT * FROM {fq_source}
-""")
+try:
+    spark.sql(f"CREATE MATERIALIZED VIEW IF NOT EXISTS {FQ}.sf_source_cached AS SELECT * FROM {fq_source}")
+    print("cached as a Materialized View")
+except Exception as e:
+    print("Materialized Views aren't available here (Free Edition serverless) — "
+          "caching as a Delta table instead:")
+    print(f"  {type(e).__name__}: {str(e)[:150]}")
+    spark.sql(f"CREATE OR REPLACE TABLE {FQ}.sf_source_cached AS SELECT * FROM {fq_source}")
 display(spark.sql(f"SELECT count(*) AS cached_rows FROM {FQ}.sf_source_cached"))
 
 # COMMAND ----------
@@ -126,7 +131,8 @@ display(spark.sql(f"SELECT count(*) AS cached_rows FROM {FQ}.sf_source_cached"))
 display(spark.sql(f"""
     SELECT * FROM remote_query(
         '{CONNECTION}',
-        query => 'SELECT count(*) AS n FROM {SF["sf_database"]}.{SF["sf_schema"]}.{SF["sf_table"]}'
+        database => '{SF["sf_database"]}',
+        query => 'SELECT count(*) AS n FROM {SF["sf_schema"]}.{SF["sf_table"]}'
     )
 """))
 

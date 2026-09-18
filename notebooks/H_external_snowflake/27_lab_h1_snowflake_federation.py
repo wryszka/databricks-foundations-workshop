@@ -77,11 +77,16 @@ if not CONFIGURED:
 
 # COMMAND ----------
 
-# MAGIC %md ## 4. Cache it with a Materialized View
+# MAGIC %md
+# MAGIC ## 4. Cache it locally
+# MAGIC Ideally a Materialized View (MV) — but MVs aren't enabled on Free Edition serverless,
+# MAGIC so try the MV and fall back to a plain Delta table if it fails (same idea).
 
 # COMMAND ----------
 
-# TODO: CREATE MATERIALIZED VIEW {FQ}.sf_source_cached AS SELECT * FROM the foreign table.
+# TODO: try `CREATE MATERIALIZED VIEW {FQ}.sf_source_cached AS SELECT * FROM {fq_source}`;
+#       in an `except`, fall back to `CREATE OR REPLACE TABLE {FQ}.sf_source_cached AS SELECT ...`.
+#       Then SELECT count(*) from it.
 
 # COMMAND ----------
 
@@ -89,7 +94,9 @@ if not CONFIGURED:
 
 # COMMAND ----------
 
-# TODO: SELECT * FROM remote_query('{CONNECTION}', query => 'SELECT count(*) ...')
+# TODO: SELECT * FROM remote_query('{CONNECTION}', database => '<sf_database>',
+#       query => 'SELECT count(*) AS n FROM <sf_schema>.<sf_table>')
+#       (remote_query needs the `database` option; the inner query is native Snowflake SQL.)
 
 # COMMAND ----------
 
