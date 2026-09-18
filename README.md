@@ -45,18 +45,22 @@ isolation, security, and sharing labs.
 | H. Connect an External Database (Snowflake) *· optional* | H1 federation · H2 scheduled ingestion |
 | I. Optional Deep Dives | I1 LLM primer / AI Playground · I2 MLOps GLM + MLflow |
 
-**Verified green headless on serverless:** A1–A4, B1–B3, C1–C8, D1 (live pipeline run), D2
-check-cell, E3 (all five `ai_*` functions), I1 (`ai_query` via `databricks-gpt-oss-120b`),
-I2 (GLM + MLflow on a recent environment).
+### Verified on Databricks Free Edition (2026-09-18)
 
-**Need live UI / infra / a second identity to fully demonstrate** (built + written as
-instructions; flagged in each notebook): E1 Genie space, E2 dashboard object, F1 share
-recipient + partner mount, G1 Lakebase provisioning, G2 app deploy, and the true
-cross-tenant *isolation* in C1/C2 (needs a second principal). System/billing tables (C8)
-depend on workspace tier. **Track H (optional)** is **verified working on Free Edition**
-(H1 + H2 run green against a live Snowflake trial) — it needs a shared Snowflake login and
-skips itself until `snowflake_configured=yes`. MVs aren't on Free serverless (H1 caches to
-a table instead) and `remote_query` takes an explicit `database` — both handled in the notebooks.
+The whole workshop was run end-to-end on a real Free Edition workspace (catalog `workspace`):
+
+- **Notebooks:** A1–A4, B1–B3, C0–C8, D2, E1–E3, F1, G1/G2, H1/H2, I1/I2 all run green.
+- **D1** runs as a real **Lakeflow pipeline** → COMPLETED (Free allows one pipeline).
+- **G1 Lakebase** instance provisioned and AVAILABLE (Free allows one project).
+- **E1 Genie** space created over the workshop tables.
+- **G2 app** deployed and RUNNING (Free allows up to three apps).
+- **H1/H2 Snowflake federation** green against a live trial.
+
+**One Free-Edition gap:** Materialized Views aren't enabled on Free serverless, so H1
+caches to a plain Delta table instead (handled in the notebook); `remote_query` also needs
+an explicit `database` (handled). **Genuinely manual by design:** E2 builds the dashboard in
+the UI (its tile SQL is verified), F1 needs a partner to mount the share, and the *true*
+cross-tenant isolation in C1/C2 needs a second principal to observe.
 
 ### Data the generator produces
 
