@@ -137,8 +137,9 @@ finish everything, and that's fine: there is more here than one day needs.
 - **E, F, G** make it feel like a real product. Some steps (a shared link to a partner, an
   operational database, a deployed app) may be shown by the instructor rather than done by
   everyone, depending on the workspace — each lab says so honestly.
-- **H** and **I** are optional. **H** needs a Snowflake instance (the instructor sets this
-  up); until then its notebooks skip themselves safely.
+- **H** and **I** are optional. **H** is hands-on on Free Edition (federation to Snowflake
+  is verified working there), using a shared Snowflake login the instructor provides; until
+  that's set, its notebooks skip themselves safely.
 
 Each lab below follows the same shape: **What this is → Where in Databricks → Steps → You
 should see**, plus a **💡 Genie Code** tip where an AI assistant could write the code for
@@ -1208,9 +1209,18 @@ the configuration steps in the notebook.
 Not every client will move their data to you. This optional track connects Keystone to a
 client's existing **Snowflake** database (another cloud data warehouse) two ways: query it
 **live without copying** (federation), and **copy it on a schedule**. You then compare the
-trade-offs. This track only works once a Snowflake instance is set up and the two widgets
-are pointed at it — until then the notebooks skip themselves cleanly, so they're safe to
-open and read.
+trade-offs. This track only works once a Snowflake account exists and the widgets are
+pointed at it — until then the notebooks skip themselves cleanly, so they're safe to open
+and read.
+
+**This has been verified working on Databricks Free Edition** — Lakehouse Federation to
+Snowflake runs fine there. Your instructor provides one shared, read-only Snowflake login
+(account URL + user + password); you store the password in a secret (exactly like lab
+**A4**) and everyone points at the same Snowflake account. Two Free-Edition notes are
+already handled in the notebooks: Materialized Views aren't enabled on Free serverless
+(the cache step falls back to a plain table automatically), and `remote_query` needs an
+explicit `database`. *(If your Free account has no outbound internet access, "Verify with
+LinkedIn" in account settings unlocks it.)*
 
 ### H1. Query Snowflake in place (Lakehouse Federation)
 
@@ -1248,8 +1258,8 @@ Materialized View, and a count returned by `remote_query` — all without import
 **💡 Genie Code.** Ask it to "create a Snowflake connection and foreign catalog, then query
 table X" and it drafts the SQL.
 
-**Needs the instructor / live infra.** A **Snowflake instance** and the `CREATE CONNECTION`
-privilege on the metastore. If you don't have those, watch the instructor run it.
+**Needs the instructor.** The shared **Snowflake login** (account URL + user + password) —
+your instructor provides it. Everything else you run yourself on Free Edition.
 
 ### H2. Copy vs federate — scheduled ingestion
 
@@ -1278,9 +1288,10 @@ unchanged after a second `MERGE` (no duplicates), and a job you could leave runn
 **💡 Genie Code.** Ask it to "MERGE the latest rows from the foreign table into
 `4_ingested_snowflake` on the key column."
 
-**Needs the instructor / live infra.** Same Snowflake instance as H1. Note: Databricks'
-fully-managed *Lakeflow Connect* connectors (SQL Server, Salesforce, ServiceNow, …) don't
-include Snowflake today, so this lab ingests through the H1 federation connection.
+**Needs the instructor.** The same shared Snowflake login as H1 (and H1 run first). Note:
+Databricks' fully-managed *Lakeflow Connect* connectors (SQL Server, Salesforce,
+ServiceNow, …) don't include Snowflake today, so this lab ingests through the H1 federation
+connection. Verified working on Free Edition.
 
 ---
 

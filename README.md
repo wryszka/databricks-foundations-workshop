@@ -53,9 +53,10 @@ I2 (GLM + MLflow on a recent environment).
 instructions; flagged in each notebook): E1 Genie space, E2 dashboard object, F1 share
 recipient + partner mount, G1 Lakebase provisioning, G2 app deploy, and the true
 cross-tenant *isolation* in C1/C2 (needs a second principal). System/billing tables (C8)
-depend on workspace tier. **Track H (optional)** needs a **Snowflake instance** — its
-notebooks are written and syntax-checked but skip themselves until `snowflake_configured`
-is set to `yes`.
+depend on workspace tier. **Track H (optional)** is **verified working on Free Edition**
+(H1 + H2 run green against a live Snowflake trial) — it needs a shared Snowflake login and
+skips itself until `snowflake_configured=yes`. MVs aren't on Free serverless (H1 caches to
+a table instead) and `remote_query` takes an explicit `database` — both handled in the notebooks.
 
 ### Data the generator produces
 

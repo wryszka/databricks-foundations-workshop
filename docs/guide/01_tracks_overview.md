@@ -22,8 +22,9 @@ finish everything, and that's fine: there is more here than one day needs.
 - **E, F, G** make it feel like a real product. Some steps (a shared link to a partner, an
   operational database, a deployed app) may be shown by the instructor rather than done by
   everyone, depending on the workspace — each lab says so honestly.
-- **H** and **I** are optional. **H** needs a Snowflake instance (the instructor sets this
-  up); until then its notebooks skip themselves safely.
+- **H** and **I** are optional. **H** is hands-on on Free Edition (federation to Snowflake
+  is verified working there), using a shared Snowflake login the instructor provides; until
+  that's set, its notebooks skip themselves safely.
 
 Each lab below follows the same shape: **What this is → Where in Databricks → Steps → You
 should see**, plus a **💡 Genie Code** tip where an AI assistant could write the code for
